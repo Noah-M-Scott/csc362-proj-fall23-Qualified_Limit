@@ -43,14 +43,14 @@ agreement. Then commit the revised contract via git.
 
 
 
-TEAM NAME [type your team name here]: 
+TEAM NAME Qualified_Limit: 
 
 
 
 TEAM MEMBERS AND CONTACT INFO:
 
    MEMBER              MOBILE PHONE           PREFERRED EMAIL
-1.
+1. Noah Scott          502-341-5168           noah.scott@centre.edu
 2.
 3. 
 4.
@@ -59,7 +59,7 @@ TEAM MEMBERS AND CONTACT INFO:
 
 AGREED MEETING TIME/PLACE/LINK FOR REGULAR WEEKLY TEAM MEETINGS/WORK:
 
-
+2:15 on Tuesdays in Library
 
 
 
@@ -98,8 +98,8 @@ your covenant.  It is OK to leave this blank.]
 
 
 
-WE HELD OUR INITIAL TEAM MEETING ON [enter date and time]:
-AT [type location/provide meeting link of meeting; e.g., Olin 208]:
+WE HELD OUR INITIAL TEAM MEETING ON 9/13/2023 9:30AM
+AT Olin 208
 
 
 
@@ -108,7 +108,7 @@ CONTRACT. WE UNDERSTAND THAT TO MODIFY THIS COVENANT, WE WILL HAVE TO
 HAVE UNANIMOUS AGREEMENT AT A MEETING WHEN ALL MEMBERS ARE PRESENT."
 
 SIGNED (Full name and date):
-
+Noah M. Scott, 9/13/2023
 
 
 

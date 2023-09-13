@@ -51,7 +51,7 @@ TEAM MEMBERS AND CONTACT INFO:
 
    MEMBER              MOBILE PHONE           PREFERRED EMAIL
 1. Noah Scott          502-341-5168           noah.scott@centre.edu
-2.
+2. Stephen Rout	       352-870-7770	      stephen.rout@centre.edu
 3. 
 4.
 
@@ -76,7 +76,7 @@ success in completing the project as a whole.]
 
 PHASE 1: DESIGN
 0. Team Contract                    09/13
-1. Mission & Objectives             09/15
+1. Mission & Objectives             09/20
 2. Tables, Fields, & PKs            09/22
 3. Table Relationships              09/29
 4. Business Rules                   10/11
@@ -109,7 +109,7 @@ HAVE UNANIMOUS AGREEMENT AT A MEETING WHEN ALL MEMBERS ARE PRESENT."
 
 SIGNED (Full name and date):
 Noah M. Scott, 9/13/2023
-
+Stephen R. Rout, 9/13/2023
 
 
 

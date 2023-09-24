@@ -1,3 +1,1 @@
-The purpose of the Upward Outfitters' database to maintain a catalog of climbing, hiking, and general outdoors gear; and to provide a system for fast custormer services.
-It should maintain information about the state of all products, and allow customers to interact with various products accordingly.
-It should also link to to a website which will allow customers to fulfill their climbing-gear-related goals and maximize their satisfaction.
+The purpose of the Upward Outfitters' database is to maintain a catalog of climbing and general outdoors gear; and to provide a system for fast customer services. It will maintain both information about the state of all products and details about customer transactions and services. It will link to a website where customers will shop for their needs and use services to maximize their satisfaction.

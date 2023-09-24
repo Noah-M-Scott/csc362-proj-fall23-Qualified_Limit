@@ -1,15 +1,15 @@
-1.
+1. Provide an online catalog of both in-stock and upcoming gear.
 
-2.
+2. Record and manage transactions, exhanges, and returns.
 
-3.
+3. Provide a discounting system.
 
-4.
+4. Provide a pre-ordering system.
 
-5.
+5. Record and manage customer warranty claims.
 
-6.
+6. Allow easy expansion of the catalog to new types of outdoors-y products.
 
-7.
+7. Ensure any customer data is well recorded and robust; to fastline customer service.
 
-8.
+8. Provide a system of discontinuing and end-of-life-ing products.

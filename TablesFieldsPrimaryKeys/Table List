@@ -39,12 +39,15 @@ transactions - catalog <-> account linking table:
 * catalogId
 * accountEmail
 * dateMade
-* priceAtSale
+* amountOwed
+* amountPayed
 * completeYesNo
+
 
 warranty - subtable of transactions:
 
 * transactionId
+* warrantyCost
 * warrantyDate
 * lengthInDays
 
@@ -56,13 +59,15 @@ warrantyClaim - subtable of transactions:
 
 financial - subtable of transactions:
 
-* amount
+* amountOwedAtPayment
+* amountPayedAtPayment
 * last4digitsOfCard
 * billing address
 
 
 exchange - subtable of transactions:
 
+* amountOwedAtExchange
 * transactionId
 * idOfExchangedTransaction
 

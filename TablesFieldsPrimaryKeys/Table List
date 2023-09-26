@@ -8,6 +8,7 @@ Catalog - data table:
 
 Discountinued - subtable of catalog:
 
+* catagoryId
 * priceDrop
 * dateDiscontinued
 
@@ -22,10 +23,22 @@ customers - verification table:
 
 transactions - catalog <-> cutomer linking table
 
+* transactionId
 * catalogId
 * customerId
+* dateMade
+* priceAtSale
 
-exchanges - 
+exchange - subtable of transations
+
+* transactionId
+* idOfExchangedTransaction
+
+return - subtable of transations
+
+* transactionId
+* dateReturned
+
 
 
 

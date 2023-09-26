@@ -42,6 +42,7 @@ transactions - catalog <-> account linking table
 * shippingAddress
 * dateMade
 * priceAtSale
+* orderID
 
 
 financial - subtable of transactions

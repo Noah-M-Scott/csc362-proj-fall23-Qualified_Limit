@@ -2,10 +2,13 @@ Catalog - data table:
 
 * catalogId
 * itemName
-* catagory
-* initalPrice
-* releaseDate
+* category
+* currentPrice
+* dateFirstAvailable
 * numberInStock
+* manufacturer
+* 
+
 
 Description - subtable of catalog:
 
@@ -38,6 +41,7 @@ transactions - catalog <-> cutomer linking table
 * transactionId
 * catalogId
 * customerId
+* shippingAddress
 * dateMade
 * priceAtSale
 

@@ -1,1 +1,35 @@
-x
+Catalog - data table:
+
+* catalogId
+* itemName
+* catagory
+* initalPrice
+* numberInStock
+
+Discountinued - subtable of catalog:
+
+* priceDrop
+* dateDiscontinued
+
+
+customers - verification table:
+
+* customerId
+* name
+* address
+* phone
+
+
+transactions - catalog <-> cutomer linking table
+
+* catalogId
+* customerId
+
+exchanges - 
+
+
+
+
+
+
+

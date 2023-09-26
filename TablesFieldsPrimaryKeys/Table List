@@ -4,18 +4,25 @@ Catalog - data table:
 * itemName
 * catagory
 * initalPrice
+* releaseDate
 * numberInStock
+
+Description - subtable of catalog:
+
+* catagoryId
+* Text
 
 Discount - subtable of catalog:
 
 * catagoryId
-* priceDrop
+* priceOffPercent
 * dateDropped
 
 Discountinued - subtable of catalog:
 
 * catagoryId
 * dateDiscontinued
+
 
 
 customers - verification table:

@@ -27,30 +27,37 @@ Discountinued - subtable of catalog:
 * dateDiscontinued
 
 
+account - verification table:
 
-customers - verification table:
-
-* customerId
-* name
-* address
+* accountEmail
+* userName
 * phone
-* email
 
-transactions - catalog <-> cutomer linking table
+
+transactions - catalog <-> account linking table
 
 * transactionId
 * catalogId
-* customerId
+* accountEmail
 * shippingAddress
 * dateMade
 * priceAtSale
 
-exchange - subtable of transations
+
+financial - subtable of transactions
+
+* amount
+* last4digitsOfCard
+* billing address
+
+
+exchange - subtable of transactions
 
 * transactionId
 * idOfExchangedTransaction
 
-return - subtable of transations
+
+return - subtable of transactions
 
 * transactionId
 * dateReturned

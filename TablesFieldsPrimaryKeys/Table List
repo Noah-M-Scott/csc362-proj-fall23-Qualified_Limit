@@ -6,10 +6,15 @@ Catalog - data table:
 * initalPrice
 * numberInStock
 
-Discountinued - subtable of catalog:
+Discount - subtable of catalog:
 
 * catagoryId
 * priceDrop
+* dateDropped
+
+Discountinued - subtable of catalog:
+
+* catagoryId
 * dateDiscontinued
 
 
@@ -19,7 +24,7 @@ customers - verification table:
 * name
 * address
 * phone
-
+* email
 
 transactions - catalog <-> cutomer linking table
 

@@ -46,6 +46,7 @@ transactions - catalog <-> account linking table:
 
 warranty - subtable of transactions:
 
+* warrantyId
 * transactionId
 * warrantyCost
 * warrantyDate
@@ -53,8 +54,8 @@ warranty - subtable of transactions:
 
 warrantyClaim - subtable of transactions:
 
+* warrantyId
 * claim
-* warrantyData
 
 
 financial - subtable of transactions:

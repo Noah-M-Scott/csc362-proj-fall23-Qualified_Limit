@@ -39,7 +39,6 @@ transactions - catalog <-> account linking table
 * transactionId
 * catalogId
 * accountEmail
-* shippingAddress
 * dateMade
 * priceAtSale
 

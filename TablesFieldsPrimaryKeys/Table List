@@ -7,7 +7,6 @@ Catalog - data table:
 * dateFirstAvailable
 * numberInStock
 * manufacturer
-* 
 
 
 Description - subtable of catalog:
@@ -34,35 +33,47 @@ account - verification table:
 * phone
 
 
-transactions - catalog <-> account linking table
+transactions - catalog <-> account linking table:
 
 * transactionId
 * catalogId
 * accountEmail
 * dateMade
 * priceAtSale
+* completeYesNo
+
+warranty - subtable of transactions:
+
+* transactionId
+* warrantyDate
+* lengthInDays
+
+warrantyClaim - subtable of transactions:
+
+* claim
+* warrantyData
 
 
-financial - subtable of transactions
+financial - subtable of transactions:
 
 * amount
 * last4digitsOfCard
 * billing address
 
 
-exchange - subtable of transactions
+exchange - subtable of transactions:
 
 * transactionId
 * idOfExchangedTransaction
 
 
-return - subtable of transactions
+return - subtable of transactions:
 
 * transactionId
 * dateReturned
 
 
-shipping - subtable of transactions
+shipping - subtable of transactions:
 
 * transactionId
 * destinationAddress

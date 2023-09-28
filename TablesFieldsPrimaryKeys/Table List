@@ -73,7 +73,7 @@ exchange - subtable of transactions:
 * amountOwedAtExchange
 * transactionId
 * idOfExchangedTransaction
-
+* trackingIdOfSentLabel
 
 return - subtable of transactions:
 

@@ -1,0 +1,60 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           catalog_numberInStock 
+Parent Table:         Catalog
+Alias(es):            N/A
+Specification Type:
+  Unique:  _ 
+  Generic: _ 
+  Replica: _ 
+Source Specification: N/A
+Shared By:            _ 
+Description:          The quantity of a given item that is currently in stock. 
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            INT 
+Length:               5 
+Decimal Places:       0
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      X 
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        X 
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: X 
+               Unique:     _ 
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   X 
+
+Values Entered By: User:   X 
+                   System: _ 
+
+Required Value:    No:     _ 
+                   Yes:    X 
+
+Range of Values:   0-99999
+
+Edit Rule:
+  Enter now, edits allowed:       X
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+NOTES: _

@@ -1,5 +1,7 @@
 Catalog - data table:
 
+
+
 * catalogId
 * itemName
 * category
@@ -9,18 +11,18 @@ Catalog - data table:
 * manufacturer
 
 
-Description - subtable of catalog:
+Descriptions - subtable of catalog:
 
 * catagoryId
 * Text
 
-Discount - subtable of catalog:
+Discounts - subtable of catalog:
 
 * catagoryId
 * priceOffPercent
 * dateDropped
 
-Discountinued - subtable of catalog:
+Discountinueds - subtable of Catalog:
 
 * catagoryId
 * dateDiscontinued

@@ -39,6 +39,7 @@ transactions - catalog <-> account linking table:
 * catalogId
 * accountEmail
 * dateMade
+* originalPriceAtTransaction
 * amountOwed
 * amountPayed
 * completeYesNo
@@ -64,6 +65,7 @@ financial - subtable of transactions:
 * amountPayedAtPayment
 * last4digitsOfCard
 * billing address
+* datePayed
 
 
 exchange - subtable of transactions:

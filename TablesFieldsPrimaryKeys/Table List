@@ -1,3 +1,4 @@
+---------------------------------------------------------------------------------------------------------------------------
 Catalog - data table:
 
 Each record holds information about the item it represents in the inventory,
@@ -12,30 +13,33 @@ PK catalog_catalogId
 *  catalog_numberInStock
 *  catalog_manufacturer
 
-
+---------------------------------------------------------------------------------------------------------------------------
 Descriptions - subtable of Catalog:
 
 FK/CPK catalog_catalogId
 CPK    decription_Text
 
+---------------------------------------------------------------------------------------------------------------------------
 Discounts - subtable of catalog:
 
 FK/CPK catalog_catalogId
 *      discount_priceOffPercent
 CPK    discount_dateDropped
 
+---------------------------------------------------------------------------------------------------------------------------
 EOLItems - subtable of Catalog:
 
 FK/CPK catalog_catalogId
 CPK    EOLItem_dateDiscontinued
 
+---------------------------------------------------------------------------------------------------------------------------
 Accounts - verification table:
 
 PK account_accountEmail
 *  account_userName
 *  account_phone
 
-
+---------------------------------------------------------------------------------------------------------------------------
 Transactions - Catalog <-> Accounts linking table:
 
 PK transaction_transactionId
@@ -47,7 +51,7 @@ FK account_accountEmail
 *  transaction_currentAmountPayed
 *  transaction_transactionCompleteBool
 
-
+---------------------------------------------------------------------------------------------------------------------------
 Warranties - subtable of Transactions:
 
 PK warranty_warrantyId
@@ -56,12 +60,14 @@ FK transaction_transactionId
 *  warranty_warrantyDate
 *  warranty_lengthInDays
 
+---------------------------------------------------------------------------------------------------------------------------
 WarrantyClaims - subtable of Transactions:
 
 FK/CPK warrantyClaim_warrantyId
 CPK    warrantyClaim_claim
 
 
+---------------------------------------------------------------------------------------------------------------------------
 FinancialData - subtable of Transactions:
 
 PK financialDatum_financialId
@@ -72,7 +78,7 @@ FK transaction_transactionId
 *  financialDatum_billing address
 *  financialDatum_datePayed
 
-
+---------------------------------------------------------------------------------------------------------------------------
 Exchanges - subtable of Transactions:
 
 *     exchange_amountOwedAtExchange
@@ -80,12 +86,13 @@ FK/PK exchange_transactionId
 *     exchange_idOfExchangedTransaction
 *     exchange_returnTrackingId
 
+---------------------------------------------------------------------------------------------------------------------------
 Returns - subtable of Transactions:
 
 FK/PK transaction_transactionId
 *     return_dateReturned
 
-
+---------------------------------------------------------------------------------------------------------------------------
 ShippingData - subtable of Transactions:
 
 FK/CPK transaction_transactionId

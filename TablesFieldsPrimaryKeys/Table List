@@ -13,21 +13,30 @@ PK catalog_catalogId
 *  catalog_numberInStock
 *  catalog_manufacturer
 
+
 ---------------------------------------------------------------------------------------------------------------------------
 Descriptions - subtable of Catalog:
+
+A optional text description for an item in the Catalog.
 
 FK/CPK catalog_catalogId
 CPK    decription_Text
 
+
 ---------------------------------------------------------------------------------------------------------------------------
 Discounts - subtable of catalog:
 
+A optional discount that might go on an item.
+
 FK/CPK catalog_catalogId
 *      discount_priceOffPercent
-CPK    discount_dateDropped
+CPK    discount_startDate
+CPK    discount_endDate
 
 ---------------------------------------------------------------------------------------------------------------------------
 EOLItems - subtable of Catalog:
+
+Way to mark END OF LIFE, or EOL items; items that will soon no longer / will not come into stock.
 
 FK/CPK catalog_catalogId
 CPK    EOLItem_dateDiscontinued
@@ -35,16 +44,22 @@ CPK    EOLItem_dateDiscontinued
 ---------------------------------------------------------------------------------------------------------------------------
 Accounts - verification table:
 
-PK account_accountEmail
+A User Account for customers, you need one to purchase items.
+
+PK account_accountId
+*  account_accountEmail
 *  account_userName
 *  account_phone
 
 ---------------------------------------------------------------------------------------------------------------------------
 Transactions - Catalog <-> Accounts linking table:
 
+A record describing a transaction; one item and user per transactions. Checking out with multiple things at once
+is internally modeled as multiple transactions.
+
 PK transaction_transactionId
 FK catalog_catalogId
-FK account_accountEmail
+FK account_accountId
 *  transaction_dateMade
 *  transaction_originalPriceAtTransaction
 *  transaction_currentAmountOwed
@@ -54,6 +69,8 @@ FK account_accountEmail
 ---------------------------------------------------------------------------------------------------------------------------
 Warranties - subtable of Transactions:
 
+A optional wayyanty a user may buy for a item, if offered.
+
 PK warranty_warrantyId
 FK transaction_transactionId
 *  warranty_warrantyCost
@@ -62,6 +79,8 @@ FK transaction_transactionId
 
 ---------------------------------------------------------------------------------------------------------------------------
 WarrantyClaims - subtable of Transactions:
+
+A record describing if a warranty has been claimed.
 
 FK/CPK warrantyClaim_warrantyId
 CPK    warrantyClaim_claim

@@ -89,6 +89,9 @@ CPK    warrantyClaim_claim
 ---------------------------------------------------------------------------------------------------------------------------
 FinancialData - subtable of Transactions:
 
+A record contains the financial data of a purchase: how much was claimed, last 4 digits of bank card, billing address,
+date, ect.
+
 PK financialDatum_financialId
 FK transaction_transactionId
 *  financialDatum_amountOwedAtPayment
@@ -100,6 +103,9 @@ FK transaction_transactionId
 ---------------------------------------------------------------------------------------------------------------------------
 Exchanges - subtable of Transactions:
 
+A record contains the details of an exchage: what transaction did the exchange credits go to, what transaction was
+exchanged, and the tracking ID of the label sent for the return.
+
 *     exchange_amountOwedAtExchange
 FK/PK exchange_transactionId
 *     exchange_idOfExchangedTransaction
@@ -108,11 +114,15 @@ FK/PK exchange_transactionId
 ---------------------------------------------------------------------------------------------------------------------------
 Returns - subtable of Transactions:
 
+A record contains if a transaction was returned, and if so, the date it was.
+
 FK/PK transaction_transactionId
 *     return_dateReturned
 
 ---------------------------------------------------------------------------------------------------------------------------
 ShippingData - subtable of Transactions:
+
+A record contains data about shipping for a transaction; it is assumed a seperate company 
 
 FK/CPK transaction_transactionId
 *      shippingDatum_destinationAddress

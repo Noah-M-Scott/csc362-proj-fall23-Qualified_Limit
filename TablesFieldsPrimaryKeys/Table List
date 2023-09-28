@@ -4,37 +4,36 @@ Each record holds information about the item it represents in the inventory,
 such as it's name, catagory, price, stock, ext. Uniquely identified by it's
 catalogId.
 
-PK catalogId
-* itemName
-* category
-* currentPrice
-* dateFirstAvailable
-* numberInStock
-* manufacturer
+PK catalog_catalogId
+* catalog_itemName
+* catalog_category
+* catalog_currentPrice
+* catalog_dateFirstAvailable
+* catalog_numberInStock
+* catalog_manufacturer
 
 
 Descriptions - subtable of Catalog:
 
-* catagoryId
-* Text
+* catalog_catalogId
+* decription_Text
 
 Discounts - subtable of catalog:
 
-* catagoryId
-* priceOffPercent
-* dateDropped
+* catalog_catalogId
+* discount_priceOffPercent
+* discount_dateDropped
 
-Discountinueds - subtable of Catalog:
+EOLItems - subtable of Catalog:
 
-* catagoryId
-* dateDiscontinued
+* catalog_catalogId
+* EOLItem_dateDiscontinued
 
+Accounts - verification table:
 
-Account - verification table:
-
-* accountEmail
-* userName
-* phone
+* account_accountEmail
+* account_userName
+* account_phone
 
 
 Transactions - Catalog <-> Accounts linking table:

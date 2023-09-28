@@ -122,7 +122,7 @@ FK/PK transaction_transactionId
 ---------------------------------------------------------------------------------------------------------------------------
 ShippingData - subtable of Transactions:
 
-A record contains data about shipping for a transaction; it is assumed a seperate company 
+A record contains data about shipping for a transaction; it is assumed a seperate company manages the shipping of the item.
 
 FK/CPK transaction_transactionId
 *      shippingDatum_destinationAddress

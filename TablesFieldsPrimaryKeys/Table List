@@ -40,8 +40,8 @@ transactions - catalog <-> account linking table:
 * accountEmail
 * dateMade
 * originalPriceAtTransaction
-* amountOwed
-* amountPayed
+* currentAmountOwed
+* currentAmountPayed
 * completeYesNo
 
 

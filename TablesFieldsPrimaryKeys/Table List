@@ -15,51 +15,51 @@ PK catalog_catalogId
 
 Descriptions - subtable of Catalog:
 
-* catalog_catalogId
-* decription_Text
+FK/CPK catalog_catalogId
+CPK decription_Text
 
 Discounts - subtable of catalog:
 
-* catalog_catalogId
+FK/CPK catalog_catalogId
 * discount_priceOffPercent
-* discount_dateDropped
+CPK discount_dateDropped
 
 EOLItems - subtable of Catalog:
 
-* catalog_catalogId
-* EOLItem_dateDiscontinued
+FK/CPK catalog_catalogId
+CPK EOLItem_dateDiscontinued
 
 Accounts - verification table:
 
-* account_accountEmail
+PK account_accountEmail
 * account_userName
 * account_phone
 
 
 Transactions - Catalog <-> Accounts linking table:
 
-* transactionId
-* catalogId
-* accountEmail
-* dateMade
-* originalPriceAtTransaction
-* currentAmountOwed
-* currentAmountPayed
-* transactionCompleteBool
+* transaction_transactionId
+* catalog_catalogId
+* account_accountEmail
+* transaction_dateMade
+* transaction_originalPriceAtTransaction
+* transaction_currentAmountOwed
+* transaction_currentAmountPayed
+* transaction_transactionCompleteBool
 
 
 Warranties - subtable of Transactions:
 
-* warrantyId
-* transactionId
-* warrantyCost
-* warrantyDate
-* lengthInDays
+PK warranty_warrantyId
+FK transaction_transactionId
+* warranty_warrantyCost
+* warranty_warrantyDate
+* warranty_lengthInDays
 
 WarrantyClaims - subtable of Transactions:
 
-* warrantyId
-* claim
+FK/CPK warrantyId
+CPK claim
 
 
 FinancialData - subtable of Transactions:

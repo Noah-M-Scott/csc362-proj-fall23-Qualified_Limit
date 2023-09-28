@@ -42,7 +42,7 @@ transactions - catalog <-> account linking table:
 * originalPriceAtTransaction
 * currentAmountOwed
 * currentAmountPayed
-* completeYesNo
+* transactionCompleteBool
 
 
 warranty - subtable of transactions:
@@ -88,6 +88,7 @@ shipping - subtable of transactions:
 * shippingCost
 * shippingService
 * trackingId
+* itemArrivedBool
 
 
 

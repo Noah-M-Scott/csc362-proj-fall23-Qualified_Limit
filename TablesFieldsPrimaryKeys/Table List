@@ -5,93 +5,95 @@ such as it's name, catagory, price, stock, ext. Uniquely identified by it's
 catalogId.
 
 PK catalog_catalogId
-* catalog_itemName
-* catalog_category
-* catalog_currentPrice
-* catalog_dateFirstAvailable
-* catalog_numberInStock
-* catalog_manufacturer
+*  catalog_itemName
+*  catalog_category
+*  catalog_currentPrice
+*  catalog_dateFirstAvailable
+*  catalog_numberInStock
+*  catalog_manufacturer
 
 
 Descriptions - subtable of Catalog:
 
 FK/CPK catalog_catalogId
-CPK decription_Text
+CPK    decription_Text
 
 Discounts - subtable of catalog:
 
 FK/CPK catalog_catalogId
-* discount_priceOffPercent
-CPK discount_dateDropped
+*      discount_priceOffPercent
+CPK    discount_dateDropped
 
 EOLItems - subtable of Catalog:
 
 FK/CPK catalog_catalogId
-CPK EOLItem_dateDiscontinued
+CPK    EOLItem_dateDiscontinued
 
 Accounts - verification table:
 
 PK account_accountEmail
-* account_userName
-* account_phone
+*  account_userName
+*  account_phone
 
 
 Transactions - Catalog <-> Accounts linking table:
 
-* transaction_transactionId
-* catalog_catalogId
-* account_accountEmail
-* transaction_dateMade
-* transaction_originalPriceAtTransaction
-* transaction_currentAmountOwed
-* transaction_currentAmountPayed
-* transaction_transactionCompleteBool
+PK transaction_transactionId
+FK catalog_catalogId
+FK account_accountEmail
+*  transaction_dateMade
+*  transaction_originalPriceAtTransaction
+*  transaction_currentAmountOwed
+*  transaction_currentAmountPayed
+*  transaction_transactionCompleteBool
 
 
 Warranties - subtable of Transactions:
 
 PK warranty_warrantyId
 FK transaction_transactionId
-* warranty_warrantyCost
-* warranty_warrantyDate
-* warranty_lengthInDays
+*  warranty_warrantyCost
+*  warranty_warrantyDate
+*  warranty_lengthInDays
 
 WarrantyClaims - subtable of Transactions:
 
-FK/CPK warrantyId
-CPK claim
+FK/CPK warrantyClaim_warrantyId
+CPK    warrantyClaim_claim
 
 
 FinancialData - subtable of Transactions:
 
-* amountOwedAtPayment
-* amountPayedAtPayment
-* last4digitsOfCard
-* billing address
-* datePayed
+PK financialDatum_financialId
+FK transaction_transactionId
+*  financialDatum_amountOwedAtPayment
+*  financialDatum_amountPayedAtPayment
+*  financialDatum_last4digitsOfCard
+*  financialDatum_billing address
+*  financialDatum_datePayed
 
 
 Exchanges - subtable of Transactions:
 
-* amountOwedAtExchange
-* transactionId
-* idOfExchangedTransaction
-* returnTrackingId
+*     exchange_amountOwedAtExchange
+FK/PK exchange_transactionId
+*     exchange_idOfExchangedTransaction
+*     exchange_returnTrackingId
 
 Returns - subtable of Transactions:
 
-* transactionId
-* dateReturned
+FK/PK transaction_transactionId
+*     return_dateReturned
 
 
 ShippingData - subtable of Transactions:
 
-* transactionId
-* destinationAddress
-* shippingCost
-* shippingService
-* trackingId
-* itemArrivedBool
+FK/CPK transaction_transactionId
+*      shippingDatum_destinationAddress
+*      shippingDatum_shippingCost
+*      shippingDatum_shippingService
+CPK    shippingDatum_trackingId
+*      shippingDatum_itemArrivedBool
 
 
 

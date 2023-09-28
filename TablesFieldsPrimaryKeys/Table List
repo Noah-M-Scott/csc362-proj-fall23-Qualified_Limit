@@ -1,8 +1,10 @@
 Catalog - data table:
 
+Each record holds information about the item it represents in the inventory,
+such as it's name, catagory, price, stock, ext. Uniquely identified by it's
+catalogId.
 
-
-* catalogId
+PK catalogId
 * itemName
 * category
 * currentPrice
@@ -11,7 +13,7 @@ Catalog - data table:
 * manufacturer
 
 
-Descriptions - subtable of catalog:
+Descriptions - subtable of Catalog:
 
 * catagoryId
 * Text
@@ -28,14 +30,14 @@ Discountinueds - subtable of Catalog:
 * dateDiscontinued
 
 
-account - verification table:
+Account - verification table:
 
 * accountEmail
 * userName
 * phone
 
 
-transactions - catalog <-> account linking table:
+Transactions - Catalog <-> Accounts linking table:
 
 * transactionId
 * catalogId
@@ -47,7 +49,7 @@ transactions - catalog <-> account linking table:
 * transactionCompleteBool
 
 
-warranty - subtable of transactions:
+Warranties - subtable of Transactions:
 
 * warrantyId
 * transactionId
@@ -55,13 +57,13 @@ warranty - subtable of transactions:
 * warrantyDate
 * lengthInDays
 
-warrantyClaim - subtable of transactions:
+WarrantyClaims - subtable of Transactions:
 
 * warrantyId
 * claim
 
 
-financial - subtable of transactions:
+FinancialData - subtable of Transactions:
 
 * amountOwedAtPayment
 * amountPayedAtPayment
@@ -70,20 +72,20 @@ financial - subtable of transactions:
 * datePayed
 
 
-exchange - subtable of transactions:
+Exchanges - subtable of Transactions:
 
 * amountOwedAtExchange
 * transactionId
 * idOfExchangedTransaction
 * returnTrackingId
 
-return - subtable of transactions:
+Returns - subtable of Transactions:
 
 * transactionId
 * dateReturned
 
 
-shipping - subtable of transactions:
+ShippingData - subtable of Transactions:
 
 * transactionId
 * destinationAddress

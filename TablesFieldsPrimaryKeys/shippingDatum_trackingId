@@ -2,59 +2,59 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ 
-Parent Table:         _ 
+Field Name:           _ shippingDatum_trackingId
+Parent Table:         _ ShippingData
 Alias(es):            _ 
 Specification Type:
-  Unique:  _ 
+  Unique:  _ X
   Generic: _ 
   Replica: _ 
 Source Specification: _ 
 Shared By:            _ 
-Description:          _ 
+Description:          _ The tracking id provided by the shipping company, one part of the Compound Primary Key.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ 
-Length:               _ 
+Data Type:            _ VARCHAR
+Length:               _ 256
 Decimal Places:       _  
 Character Support:
-  Letters (A-Z):      _ 
-  Numbers (0-9):      _ 
-  Keyboard (.,/$#%):  _ 
-  Special (©®™Σπ):    _ 
+  Letters (A-Z):      _ X
+  Numbers (0-9):      _ X
+  Keyboard (.,/$#%):  _ X
+  Special (©®™Σπ):    _ X
 
 
 LOGICAL ELEMENTS
 
 Key Type:      Non:        _ 
-               Primary:    _ 
+               Primary:    _ X 
                Foreign:    _ 
                Alternate:  _ 
 
 Key Structure: Simple:     _ 
-               Composite:  _ 
+               Composite:  _ X
 
 Uniqueness:    Non-unique: _ 
-               Unique:     _ 
+               Unique:     _ X
 
-Null Support:  Nulls OK:   _ 
+Null Support:  Nulls OK:   _ X
                No nulls:   _ 
 
-Values Entered By: User:   _ 
+Values Entered By: User:   _ X
                    System: _ 
 
-Required Value:    No:     _ 
+Required Value:    No:     _ X
                    Yes:    _ 
 
-Range of Values:   _ 
+Range of Values:   _ Whatever the tracking id provided by the outside company is
 
 Edit Rule:
   Enter now, edits allowed:       _ 
   Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
-  Not determined at this time:    _ 
+  Not determined at this time:    _ X
 
 NOTES: _

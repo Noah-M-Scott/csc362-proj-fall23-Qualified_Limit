@@ -1,0 +1,60 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _ financialDatum_last4digitsOfCard
+Parent Table:         _ FinancialData
+Alias(es):            _ 
+Specification Type:
+  Unique:  _ 
+  Generic: _ 
+  Replica: _ 
+Source Specification: _ 
+Shared By:            _ 
+Description:          _ The last four digits of the card used to make the financial transaction.
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _ CHAR
+Length:               _ 4
+Decimal Places:       _  
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _ X
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ X
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _ X
+               Unique:     _ 
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   _ X
+
+Values Entered By: User:   _ X
+                   System: _ 
+
+Required Value:    No:     _ 
+                   Yes:    _ X
+
+Range of Values:   _ any 4 character permutation of the characters '0' to '9'
+
+Edit Rule:
+  Enter now, edits allowed:       _ 
+  Enter now, edits not allowed:   _ X
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+NOTES: _

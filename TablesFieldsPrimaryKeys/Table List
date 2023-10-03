@@ -82,7 +82,7 @@ WarrantyClaims - subtable of Transactions:
 
 A record describing if a warranty has been claimed.
 
-FK/CPK warrantyClaim_warrantyId
+FK/CPK warranty_warrantyId
 CPK    warrantyClaim_claim
 
 

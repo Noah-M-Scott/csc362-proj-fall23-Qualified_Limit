@@ -107,7 +107,7 @@ A record contains the details of an exchage: what transaction did the exchange c
 exchanged, and the tracking ID of the label sent for the return.
 
 *     exchange_amountOwedAtExchange
-FK/PK exchange_transactionId
+FK/PK transaction_transactionId
 *     exchange_idOfExchangedTransaction
 *     exchange_returnTrackingId
 

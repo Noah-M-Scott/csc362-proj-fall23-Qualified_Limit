@@ -97,7 +97,7 @@ FK transaction_transactionId
 *  financialDatum_amountOwedAtPayment
 *  financialDatum_amountPayedAtPayment
 *  financialDatum_last4digitsOfCard
-*  financialDatum_billing address
+*  financialDatum_billingAddress
 *  financialDatum_datePayed
 
 ---------------------------------------------------------------------------------------------------------------------------

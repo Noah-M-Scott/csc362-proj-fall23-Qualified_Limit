@@ -16,8 +16,8 @@ Description:          A unique generated ID for a given transaction
 PHYSICAL ELEMENTS
 
 Data Type:            INT 
-Length:               9 
-Decimal Places:       0  
+Length:               -
+Decimal Places:       -  
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      X 
@@ -47,7 +47,7 @@ Values Entered By: User:   _
 Required Value:    No:     _ 
                    Yes:    X 
 
-Range of Values:   _ 
+Range of Values:   _ 1 to MAXINT
 
 Edit Rule:
   Enter now, edits allowed:       _ 

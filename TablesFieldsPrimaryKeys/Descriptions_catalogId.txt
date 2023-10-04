@@ -15,12 +15,12 @@ Description:          Automatically generated unique ID for each item of equipme
 
 PHYSICAL ELEMENTS
 
-Data Type:            DECIMAL
-Length:               7 
-Decimal Places:       2  
+Data Type:            INT
+Length:               -
+Decimal Places:       -  
 Character Support:
   Letters (A-Z):      _ 
-  Numbers (0-9):      X
+  Numbers (0-9):      -
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 

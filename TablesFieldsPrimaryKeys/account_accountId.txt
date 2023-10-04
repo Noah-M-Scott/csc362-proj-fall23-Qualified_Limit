@@ -47,7 +47,7 @@ Values Entered By: User:   _
 Required Value:    No:     _ 
                    Yes:    X 
 
-Range of Values:   0-999999999
+Range of Values:   1 to MAXINT
 
 Edit Rule:
   Enter now, edits allowed:       _ 

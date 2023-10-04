@@ -63,7 +63,7 @@ FK account_accountId
 *  transaction_dateMade
 *  transaction_originalPriceAtTransaction
 *  transaction_currentAmountOwed
-*  transaction_currentAmountPayed
+*  transaction_currentAmountPaid
 *  transaction_transactionCompleteBool
 
 ---------------------------------------------------------------------------------------------------------------------------

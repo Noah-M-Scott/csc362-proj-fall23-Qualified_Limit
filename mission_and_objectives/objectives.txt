@@ -13,3 +13,5 @@
 7. Ensure any customer data is well recorded, robust, and easy to access and modify to better support efficient customer service.
 
 8. Provide a system of discontinuing / end-of-life-ing products.
+
+Comments: Nice work. No implementation details, just specific but high-level goals.

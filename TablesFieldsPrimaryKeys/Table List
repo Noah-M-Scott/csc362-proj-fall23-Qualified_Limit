@@ -69,7 +69,7 @@ FK account_accountId
 ---------------------------------------------------------------------------------------------------------------------------
 Warranties - subtable of Transactions:
 
-A optional wayyanty a user may buy for a item, if offered.
+A optional warranty a user may buy for a item, if offered.
 
 PK warranty_warrantyId
 FK transaction_transactionId

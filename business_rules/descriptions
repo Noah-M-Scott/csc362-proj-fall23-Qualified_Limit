@@ -50,7 +50,11 @@ the current date <= warrantyDate + lenghtInDays
 
 19: warranty.warrantyDate >= transaction.dateMade
 
+20: if currentAmountOwed is 0, then no more payments (positive financialData)
+can be created
 
+21: if currentAmountOwed is <0, then a exchange overpayed, and money is
+put back on a chosen card
 
 
 

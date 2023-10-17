@@ -50,8 +50,6 @@ the current date <= warrantyDate + lenghtInDays
 
 19: warranty.warrantyDate >= transaction.dateMade
 
-20: 
-
 
 
 

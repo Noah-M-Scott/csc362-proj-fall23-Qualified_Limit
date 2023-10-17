@@ -1,5 +1,19 @@
-0: 
+0: The date that an item is returned must be after the date of the original.
 
-1:
+1: the currentAmountOwed in transactions is dynamically incremented and decremented by shippingData.shippingCost 
 
-2:
+2: the currentAmountOwed in transactions is dynamically incremented and decremented by financialData
+
+3: the currentAmountOwed in transactions is dynamically incremented and decremented by exchanges
+
+4: the currentAmountOwed in transactions is dynamically incremented and decremented by warranties
+
+5: current_amount_paid is dynamically incremented and decremented by finanicalData
+
+6: current_amount_paid is dynamically incremented and decremented by exchanges
+
+7: Discounts.startDate must be before Discounts.endDate
+
+8: return row cannot be created if the transactionComplete bool is not True
+
+9:

@@ -16,4 +16,26 @@
 
 8: return row cannot be created if the transactionComplete bool is not True
 
-9:
+9: when a return happens, if it wasn't shipped (bought in store/digital)
+then financialData putting the money back on a chosen card is made;
+if it was shipped, then only when the shipping back to the store is done
+is money put back on the card.
+
+10: warranty claim 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

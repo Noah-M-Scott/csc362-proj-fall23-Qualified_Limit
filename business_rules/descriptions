@@ -21,7 +21,14 @@ then financialData putting the money back on a chosen card is made;
 if it was shipped, then only when the shipping back to the store is done
 is money put back on the card.
 
-10: warranty claim 
+10: warranty claim -> a replacement item is shipped out
+
+11: if a item is eol, it has a discount created with it
+
+12: transactionCompleteBool ->
+marked false by an unpayed cost existing
+marked false by unarrived shipping existing
+marked true if none of the above are true in the current DB
 
 
 

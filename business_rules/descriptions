@@ -1,59 +1,56 @@
-0: The date that an item is returned must be after the date of the original.
+00: The date that an item is returned must be after the date of the original.
 
-1: the currentAmountOwed in transactions is dynamically incremented and decremented by shippingData.shippingCost 
+01: the currentAmountOwed in transactions is dynamically incremented and decremented by shippingData.shippingCost 
 
-2: the currentAmountOwed in transactions is dynamically incremented and decremented by financialData
+02: the currentAmountOwed in transactions is dynamically incremented and decremented by financialData
 
-3: the currentAmountOwed in transactions is dynamically incremented and decremented by exchanges
+03: the currentAmountOwed in transactions is dynamically incremented and decremented by exchanges
 
-4: the currentAmountOwed in transactions is dynamically incremented and decremented by warranties
+04: the currentAmountOwed in transactions is dynamically incremented and decremented by warranties
 
-5: current_amount_paid is dynamically incremented and decremented by finanicalData
+05: current_amount_paid is dynamically incremented and decremented by finanicalData
+if currentAmountOwed is 0, then no more payments (positive financialData) can be created
 
-6: current_amount_paid is dynamically incremented and decremented by exchanges
+06: current_amount_paid is dynamically incremented and decremented by exchanges
+if currentAmountOwed is 0, then no more exchages can be created
 
-7: Discounts.startDate must be before Discounts.endDate
+07: return row cannot be created if the transactionComplete bool is not True
 
-8: return row cannot be created if the transactionComplete bool is not True
-
-9: when a return happens, if it wasn't shipped (bought in store/digital/
+08: when a return happens, if it wasn't shipped (bought in store/digital/
 preorder yet to be shipped or instock)
 then financialData putting the money back on a chosen card is made;
 if it was shipped, then only when the shipping back to the store is done
 is money put back on the card.
 
-10: warranty claim -> a replacement item is shipped out, Catalog.numberInStock--
+09: warranty claim -> a replacement item is shipped out, Catalog.numberInStock--
 
-12: transactionCompleteBool ->
+10: transactionCompleteBool ->
 marked false by an unpayed cost existing
 marked false by unarrived shipping existing
 marked true if none of the above are true in the current DB
 
-13: returns.dateReturned is after transaction.dateMade
+11: returns.dateReturned is after transaction.dateMade
 
-14: financialData.datePayed is after transaction.dateMade
+12: financialData.datePayed is after transaction.dateMade
 
-11: the creation of a transaction results in respective Catalog.numberInStock--
+13: the creation of a transaction results in respective Catalog.numberInStock--
 
-15: if a transaction is made for a catalog with numberInStock = 0
+14: if a transaction is made for a catalog with numberInStock = 0
 or dateFirstAvailable, then the transaction cannot be complete, and
 a shippingData cannot be made (the purchase is put on hold / inqueue).
 
-16: transactions on hold are given priority based on dateMade
+15: transactions on hold are given priority based on dateMade
 this achieves preorders
 
-17: if a catalog item reaches it's eol date, then it can no longer
+16: if a catalog item reaches it's eol date, then it can no longer
 be used in a transaction (it can't be bought nor ordered)
 
-18: warrantyClaim_claim can only be created when
+17: warrantyClaim_claim can only be created when
 the current date <= warrantyDate + lenghtInDays
 
-19: warranty.warrantyDate >= transaction.dateMade
+18: warranty.warrantyDate >= transaction.dateMade
 
-20: if currentAmountOwed is 0, then no more payments (positive financialData)
-can be created
-
-21: if currentAmountOwed is <0, then a exchange overpayed, and money is
+19: if currentAmountOwed is <0, then a exchange overpayed, and money is
 put back on a chosen card
 
 

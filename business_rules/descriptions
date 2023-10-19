@@ -38,8 +38,7 @@ marked true if none of the above are true in the current DB
 14: if a transaction is made for a catalog with numberInStock = 0
 or dateFirstAvailable, then the transaction cannot be complete, and
 a shippingData cannot be made (the purchase is put on hold / inqueue).
-
-15: transactions on hold are given priority based on dateMade
+Transactions on hold are given priority based on dateMade
 this achieves preorders
 
 16: if a catalog item reaches it's eol date, then it can no longer

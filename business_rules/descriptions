@@ -41,15 +41,15 @@ a shippingData cannot be made (the purchase is put on hold / inqueue).
 Transactions on hold are given priority based on dateMade
 this achieves preorders
 
-16: if a catalog item reaches it's eol date, then it can no longer
+15: if a catalog item reaches it's eol date, then it can no longer
 be used in a transaction (it can't be bought nor ordered)
 
-17: warrantyClaim_claim can only be created when
+16: warrantyClaim_claim can only be created when
 the current date <= warrantyDate + lenghtInDays
 
-18: warranty.warrantyDate >= transaction.dateMade
+17: warranty.warrantyDate >= transaction.dateMade
 
-19: if currentAmountOwed is <0, then a exchange overpayed, and money is
+18: if currentAmountOwed is <0, then a exchange overpayed, and money is
 put back on a chosen card
 
 

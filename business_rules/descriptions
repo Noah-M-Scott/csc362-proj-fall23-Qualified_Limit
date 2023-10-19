@@ -3,16 +3,16 @@
 01: the currentAmountOwed in transactions is dynamically incremented and decremented by shippingData.shippingCost 
 
 02: the currentAmountOwed in transactions is dynamically incremented and decremented by financialData
+if currentAmountOwed is 0, then no more payments (positive financialData) can be created
 
 03: the currentAmountOwed in transactions is dynamically incremented and decremented by exchanges
+if currentAmountOwed is 0, then no more exchages can be created
 
 04: the currentAmountOwed in transactions is dynamically incremented and decremented by warranties
 
 05: current_amount_paid is dynamically incremented and decremented by finanicalData
-if currentAmountOwed is 0, then no more payments (positive financialData) can be created
 
 06: current_amount_paid is dynamically incremented and decremented by exchanges
-if currentAmountOwed is 0, then no more exchages can be created
 
 07: return row cannot be created if the transactionComplete bool is not True
 

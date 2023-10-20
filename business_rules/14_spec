@@ -9,7 +9,8 @@ back in stock; this achieves preorders.
 
 Constraint: _ If a Transaction row is made for a Catalog item with catalog.numberInStock = 0
 or it's dateFirstAvailable if after today, then the Transaction.transactionCompleteBool is forced to false, 
-and a respective ShippingData row cannot be made. Transactions in this state are given priority based on dateMade.
+Transaction.onHold is set to true, and a respective ShippingData row cannot be made. 
+Transactions in this state are given priority based on dateMade.
 
 
 Type:     Database Oriented:     _ X
@@ -54,9 +55,12 @@ RELATIONSHIP CHARACTERISTICS AFFECTED
     
 ACTION TAKEN
 
-_  If a Transaction row is made for a Catalog item with catalog.numberInStock = 0
-or it's dateFirstAvailable if after today, then the Transaction.transactionCompleteBool is forced to false, 
-and a respective ShippingData row cannot be made. Transactions in this state are given priority based on dateMade.
+_  If a Transaction row is inserted and references a Catalog item with catalog.numberInStock = 0
+or catalog.dateFirstAvailable if after today, then the Transaction.transactionCompleteBool is forced to false.
+On insertion of a respective ShippingData row, if the same conditions are detected, it will fail.
+On update of the respective Catalog row's Catalog.number in stock, Transactions that reference are checked to
+see if they where in this state, if so, Transactions.onHold is set to false, and
+Transactions in this state are given priority based on dateMade as towards being updated.
 
 
 NOTES: _

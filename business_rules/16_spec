@@ -2,9 +2,11 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  _ 
+Statement:  _ Warranties can only be claimed when they're still active, or
+current date <= warranty start date + lenght in days
 
-Constraint: _ 
+Constraint: _ warrantyClaim_claim can only be created when
+the current date <= warrantyDate + lenghtInDays
 
 Type:     Database Oriented:     _ 
           Application Oriented   _ 

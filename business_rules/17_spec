@@ -2,9 +2,9 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  _ 
+Statement:  _ warranty.warrantyDate >= transaction.dateMade
 
-Constraint: _ 
+Constraint: _ warranty.warrantyDate >= transaction.dateMade
 
 Type:     Database Oriented:     _ 
           Application Oriented   _ 

@@ -4,26 +4,26 @@ RULE INFORMATION
 
 Statement: _ A transaction is not complete while there is a unpayed cost or the shipped item has not arrived
 
-Constraint: _ Transactions.transactionCompleteBool is false while the respective Transaction.currentAmountOwed > 0
-and any of the respective ShippingData.itemArrivedBool is false.
+Constraint: _ Transactions.transactionCompleteBool is false while the respective Transaction.currentAmountOwed is
+greater than zero and any of the respective ShippingData.itemArrivedBool is false.
 
 
-Type:     Database Oriented:     _ 
+Type:     Database Oriented:     _ X
           Application Oriented   _ 
 
-Category: Field Specific:        _ 
-          Relationship Specific: _ 
+Category: Field Specific:        _ X
+          Relationship Specific: _ X
 
 Test On:  Insert:                _ 
           Delete:                _ 
-          Update:                _
+          Update:                _ X
 
 
 STRUCTURES AFFECTED
 
-Field Names: _ 
+Field Names: _ transactionCompleteBool currentAmountOwed itemArrivedBool
 
-Table Names: _
+Table Names: _ Transactions ShippingData
 
 
 FIELD ELEMENTS AFFECTED
@@ -37,20 +37,23 @@ Logical Elements:  Key Type:            _
                    Uniqueness:          _ 
                    Null Support:        _ 
                    Values Entered By:   _ 
-                   Range of Values:     _ 
+                   Range of Values:     _ X, ONLY FALSE IS VALID IN THIS CASE
                    Edit Rule:           _ 
 
 
 RELATIONSHIP CHARACTERISTICS AFFECTED
 
     Deletion rule:              _
-    Type of participation:      _
+    Type of participation:      _ X
     Degree of participation:    _
 
     
 ACTION TAKEN
 
-_ 
+_ Under any attempt to update Transactions.transactionCompleteBool to true, 
+check that if the respective Transaction.currentAmountOwed is greater than zero 
+or if any of the respective ShippingData.itemArrivedBool is false, if either of these
+are true, then Transactions.transactionCompleteBool remains false.
 
 
 NOTES: _

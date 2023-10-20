@@ -3,27 +3,28 @@ BUSINESS RULE SPECIFICATIONS
 RULE INFORMATION
 
 Statement:  _ Warranties can only be claimed when they're still active, or
-current date <= warranty start date + lenght in days
+current date <= warranty start date + lenght in days.
 
-Constraint: _ warrantyClaim_claim can only be created when
-the current date <= warrantyDate + lenghtInDays
+Constraint: _ A warrantyClaim record can only be inserted when
+the current date <= the referenced warranty's .warrantyDate 
++ the referenced warranty's .lenghtInDays
 
-Type:     Database Oriented:     _ 
+Type:     Database Oriented:     _ X
           Application Oriented   _ 
 
 Category: Field Specific:        _ 
-          Relationship Specific: _ 
+          Relationship Specific: _ X
 
-Test On:  Insert:                _ 
+Test On:  Insert:                _ X
           Delete:                _ 
           Update:                _
 
 
 STRUCTURES AFFECTED
 
-Field Names: _ 
+Field Names: _ warrantyDate lengthInDays
 
-Table Names: _
+Table Names: _ Warranties WarrantyClaims
 
 
 FIELD ELEMENTS AFFECTED
@@ -45,12 +46,14 @@ RELATIONSHIP CHARACTERISTICS AFFECTED
 
     Deletion rule:              _
     Type of participation:      _
-    Degree of participation:    _
+    Degree of participation:    _ X
 
     
 ACTION TAKEN
 
-_ 
+_ On a WarrantyClaim record's insertion, the referenced Warranty is tested as
+to the following: the current date must be <= (Warranties.warrantyDate + Warranties.lenghtInDays);
+if this is not true, the insertion fails.
 
 
 NOTES: _

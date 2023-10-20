@@ -26,7 +26,7 @@ Test On:  Insert:                _
 
 STRUCTURES AFFECTED
 
-Field Names: _ numberInStock dateFirstAvailable transactionCompleteBool dateMade
+Field Names: _ numberInStock dateFirstAvailable transactionCompleteBool dateMade onHold
 
 Table Names: _ Catalog Transactions ShippingData
 

@@ -2,26 +2,26 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  _ 
+Statement:  _ It is impossible to return a item before it is bought.
 
-Constraint: _ 
+Constraint: _ returns.dateReturned must be after transaction.dateMade
 
-Type:     Database Oriented:     _ 
+Type:     Database Oriented:     _ X
           Application Oriented   _ 
 
-Category: Field Specific:        _ 
+Category: Field Specific:        _ X
           Relationship Specific: _ 
 
-Test On:  Insert:                _ 
+Test On:  Insert:                _ X
           Delete:                _ 
           Update:                _
 
 
 STRUCTURES AFFECTED
 
-Field Names: _ 
+Field Names: _ dateReturned dateMade
 
-Table Names: _
+Table Names: _ Returns Transactions
 
 
 FIELD ELEMENTS AFFECTED
@@ -35,20 +35,21 @@ Logical Elements:  Key Type:            _
                    Uniqueness:          _ 
                    Null Support:        _ 
                    Values Entered By:   _ 
-                   Range of Values:     _ 
+                   Range of Values:     _ X 
                    Edit Rule:           _ 
 
 
 RELATIONSHIP CHARACTERISTICS AFFECTED
 
     Deletion rule:              _
-    Type of participation:      _
-    Degree of participation:    _
+    Type of participation:      _ X
+    Degree of participation:    _ 
 
     
 ACTION TAKEN
 
-_ 
+_ On insertions of a Returns row, thest that Returns.dateReturned is
+after the respective Transaction.dateMade, else fail.
 
 
 NOTES: _

@@ -24,12 +24,10 @@ is money put back on the card.
 
 09: warranty claim -> a replacement item is shipped out, Catalog.numberInStock--
 
-10: transactionCompleteBool ->
-marked false by an unpayed cost existing
-marked false by unarrived shipping existing
-marked true if none of the above are true in the current DB
+10: A transaction is not complete while there is a unpayed cost or the shipped item has not arrived
 
-11: returns.dateReturned is after transaction.dateMade
+11: It is impossible to return a item before it is bought.
+returns.dateReturned is after transaction.dateMade
 
 12: financialData.datePayed is after transaction.dateMade
 

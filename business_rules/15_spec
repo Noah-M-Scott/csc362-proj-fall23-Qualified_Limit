@@ -51,7 +51,7 @@ RELATIONSHIP CHARACTERISTICS AFFECTED
 ACTION TAKEN
 
 _ On the insertion of a Transaction row, it is tested to see if the referenced Catalog item
-is referenced in EOLItems, if so, and the EOLItems.EOLdaye is before today, then the inserion fails.
+is referenced in EOLItems, if so, and the EOLItems.EOLdaye is before today, then the insertion fails.
 
 
 NOTES: _

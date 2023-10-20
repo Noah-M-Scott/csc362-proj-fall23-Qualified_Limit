@@ -1,0 +1,54 @@
+BUSINESS RULE SPECIFICATIONS
+
+RULE INFORMATION
+
+Statement:  If an item is returned without having been shipped, the customer is immediately reimbursed. Otherwise, reimbursement waits until the company has recieved the item.
+
+Constraint: if a return is initiated for a given transaction, and that transaction has an associated shipping data record associated with it, then a financialData record cannot be created for reimbursement until return.dateReturned has been filled.
+
+Type:     Database Oriented:     X 
+          Application Oriented   _
+
+Category: Field Specific:        _ 
+          Relationship Specific: X
+
+Test On:  Insert:                X 
+          Delete:                _
+          Update:                _
+
+
+STRUCTURES AFFECTED
+
+Field Names:  returns.dateReturned, 
+
+Table Names: returns, transactions, financialData
+
+
+FIELD ELEMENTS AFFECTED
+
+Physical Elements: Data Type:           _ 
+                   Length:              _ 
+                   Character Support:   _ 
+
+Logical Elements:  Key Type:            _ 
+                   Key Structure:       _ 
+                   Uniqueness:          _ 
+                   Null Support:        _ 
+                   Values Entered By:   _ 
+                   Range of Values:     _ 
+                   Edit Rule:           _ 
+
+
+RELATIONSHIP CHARACTERISTICS AFFECTED
+
+    Deletion rule:              _
+    Type of participation:      _
+    Degree of participation:    X
+
+    
+ACTION TAKEN
+
+_ 
+
+
+NOTES: _

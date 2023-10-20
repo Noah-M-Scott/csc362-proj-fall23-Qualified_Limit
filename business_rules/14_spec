@@ -2,26 +2,32 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  _ 
+Statement:  _ If a transaction is made for a unavailble catalog item,
+then the transaction cannot be complete, and the purchase is put on hold / inqueue.
+Transactions on hold are then given priority based on the date they were made; once the item
+back in stock; this achieves preorders.
 
-Constraint: _ 
+Constraint: _ If a Transaction row is made for a Catalog item with catalog.numberInStock = 0
+or it's dateFirstAvailable if after today, then the Transaction.transactionCompleteBool is forced to false, 
+and a respective ShippingData row cannot be made. Transactions in this state are given priority based on dateMade.
 
-Type:     Database Oriented:     _ 
+
+Type:     Database Oriented:     _ X
           Application Oriented   _ 
 
-Category: Field Specific:        _ 
-          Relationship Specific: _ 
+Category: Field Specific:        _ X
+          Relationship Specific: _ X
 
 Test On:  Insert:                _ 
           Delete:                _ 
-          Update:                _
+          Update:                _ X
 
 
 STRUCTURES AFFECTED
 
-Field Names: _ 
+Field Names: _ numberInStock dateFirstAvailable transactionCompleteBool dateMade
 
-Table Names: _
+Table Names: _ Catalog Transactions ShippingData
 
 
 FIELD ELEMENTS AFFECTED
@@ -35,7 +41,7 @@ Logical Elements:  Key Type:            _
                    Uniqueness:          _ 
                    Null Support:        _ 
                    Values Entered By:   _ 
-                   Range of Values:     _ 
+                   Range of Values:     _ X
                    Edit Rule:           _ 
 
 
@@ -43,12 +49,14 @@ RELATIONSHIP CHARACTERISTICS AFFECTED
 
     Deletion rule:              _
     Type of participation:      _
-    Degree of participation:    _
+    Degree of participation:    _ X
 
     
 ACTION TAKEN
 
-_ 
+_  If a Transaction row is made for a Catalog item with catalog.numberInStock = 0
+or it's dateFirstAvailable if after today, then the Transaction.transactionCompleteBool is forced to false, 
+and a respective ShippingData row cannot be made. Transactions in this state are given priority based on dateMade.
 
 
 NOTES: _

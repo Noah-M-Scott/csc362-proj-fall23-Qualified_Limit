@@ -2,26 +2,27 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  _ 
+Statement:  _ The catalog follows the conservation of matter.
 
-Constraint: _ 
+Constraint: _ The creation of a Transaction row results in the respective Catalog row's
+Catalog.numberInStock decrementing.
 
-Type:     Database Oriented:     _ 
+Type:     Database Oriented:     _ X
           Application Oriented   _ 
 
-Category: Field Specific:        _ 
+Category: Field Specific:        _ X
           Relationship Specific: _ 
 
-Test On:  Insert:                _ 
+Test On:  Insert:                _ X
           Delete:                _ 
           Update:                _
 
 
 STRUCTURES AFFECTED
 
-Field Names: _ 
+Field Names: _ numberInStock
 
-Table Names: _
+Table Names: _ Catalog Transaction
 
 
 FIELD ELEMENTS AFFECTED
@@ -35,7 +36,7 @@ Logical Elements:  Key Type:            _
                    Uniqueness:          _ 
                    Null Support:        _ 
                    Values Entered By:   _ 
-                   Range of Values:     _ 
+                   Range of Values:     _ X
                    Edit Rule:           _ 
 
 
@@ -48,7 +49,8 @@ RELATIONSHIP CHARACTERISTICS AFFECTED
     
 ACTION TAKEN
 
-_ 
+_ On the creation of a Transaction row; the respective Catalog row's
+Catalog.numberInStock is decremented.
 
 
 NOTES: _

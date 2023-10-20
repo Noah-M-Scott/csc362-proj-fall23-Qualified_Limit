@@ -2,26 +2,28 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  _ 
+Statement:  _ If a catalog item reaches it's eol date, then it can no longer
+be used in a it can no longer be bought nor ordered.
 
-Constraint: _ 
+Constraint: _ If a Catalog item's respective EOLItems.EOLdate is before today, then Transaction rows
+referencing it can no longer be inserted.
 
-Type:     Database Oriented:     _ 
+Type:     Database Oriented:     _ X
           Application Oriented   _ 
 
 Category: Field Specific:        _ 
-          Relationship Specific: _ 
+          Relationship Specific: _ X
 
-Test On:  Insert:                _ 
+Test On:  Insert:                _ X
           Delete:                _ 
           Update:                _
 
 
 STRUCTURES AFFECTED
 
-Field Names: _ 
+Field Names: _ EOLdate
 
-Table Names: _
+Table Names: _ Transaction EOLItems
 
 
 FIELD ELEMENTS AFFECTED
@@ -43,12 +45,13 @@ RELATIONSHIP CHARACTERISTICS AFFECTED
 
     Deletion rule:              _
     Type of participation:      _
-    Degree of participation:    _
+    Degree of participation:    _ X
 
     
 ACTION TAKEN
 
-_ 
+_ On the insertion of a Transaction row, it is tested to see if the referenced Catalog item
+is referenced in EOLItems, if so, and the EOLItems.EOLdaye is before today, then the inserion fails.
 
 
 NOTES: _

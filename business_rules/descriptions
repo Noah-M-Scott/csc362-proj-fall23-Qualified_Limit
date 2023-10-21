@@ -1,50 +1,62 @@
 00: If an item is returned, the date must be after the date it was originally purchased.
-The date that an item is returned must be after the date of the original.
+This is to maintain data integrity; as a item cannot be returned in a time before it was
+bought.
 
-01: The amount that a customer owes is effected by their shipping cost
-the currentAmountOwed in transactions is dynamically incremented and decremented by shippingData.shippingCost 
+01: The amount that a customer owes is effected by their shipping cost.
+As the company will be the ones to ship the items with a outside service,
+they need to recieve the shipping money before the transaction is complete.
 
 02: The amount that a customer owes is effected by their payments they make
-the currentAmountOwed in transactions is dynamically incremented and decremented by financialData
-if currentAmountOwed is 0, then no more payments (positive financialData) can be created
+the currentAmountOwed in transactions is dynamically incremented and decremented by financialData.
+FinancialData keeps tracks of bank cards, a customer can pay for items with a bank cards,
+and they can also recieve extra money left over from a exchange onto their bank card.
 
-03: The amount that a customer owes is effected by exchanges they may make
-the currentAmountOwed in transactions is dynamically incremented and decremented by exchanges
-if currentAmountOwed is 0, then no more exchages can be created
+03: The amount that a customer owes is effected by exchanges they may make.
+Exchanges can help pay for items, as the worth of the exchanged item is used
+to cover the cost of the new item.
+However, if currentAmountOwed is 0, then no more exchages can be created.
 
-04: The amount that a customer owes is effected by the addition of a warranty
-the currentAmountOwed in transactions is dynamically incremented and decremented by warranties
+04: The amount that a customer owes is effected by the addition of a warranty.
+Warranties cost extra, and their cost is reflected in the transaction's running
+total.
 
-05: The amount that a customer has already paid is incremented and decremented by the payments that they make
-current_amount_paid is dynamically incremented and decremented by finanicalData
+05: The amount that a customer has already paid is incremented and decremented by the payments that they make.
+The transaction keeps a running total of what the customer has paid, payments accumulate, and if a
+card bounces, the amount is deducted.
 
-06: The amount that a customer has already paid is incremented and decremented by exchanges
-current_amount_paid is dynamically incremented and decremented by exchanges
+06: The amount that a customer has already paid is incremented and decremented by exchanges.
+Exchanges help pay for transactions, and the amount the exchange is worth is added to
+the running total of what's been paid. If the exchange is rendered null for some reason,
+that amount can be deducted.
 
 07: A return cannot be initiated until the transaction it seeks to undo has been completed.
-return row cannot be created if the transactionComplete bool is not True
+A item cannot be returned untill it is deemed that the transaction is complete, this means:
+the item has been fully paid for and is in the customer's hands.
 
 08:  If an item is returned without having been shipped, the customer is immediately reimbursed. 
 Otherwise, reimbursement waits until the company has recieved the item.
-when a return happens, if it wasn't shipped (bought in store/digital/
-preorder yet to be shipped or instock)
-then financialData putting the money back on a chosen card is made;
-if it was shipped, then only when the shipping back to the store is done
-is money put back on the card.
+This allows both digital/instore purchases/returns to handled as well as shipped items.
+This is also to assure that the company isn't swindled out of the item while the client
+gets the money. The item must be in the company's hands before the client is reembursed.
 
 09: When a warranty claim is accepted, the associated item's inventory stock is reduced.
-warranty claim -> a replacement item is shipped out, Catalog.numberInStock--
+This enforcess the preservation of matter, as we cannot magically duplicate items, if we
+replace an item that was under warranty, we are giving an item away.
 
 10: A transaction is not complete while there is a unpayed cost or the shipped item has not arrived
+This is to ensure that: One, the company actually gets paid for their items, and Two, items
+that are lost in the mail are not marked as closed; so customer service can troubleshoot.
 
 11: It is impossible to return a item before it is bought.
-returns.dateReturned is after transaction.dateMade
+The data a transaction is created must be before the date a item is returned,
+data integrity issue.
 
-12: The a payment record cannot be dated as happening before the item it's related to was purchased
-financialData.datePayed is after transaction.dateMade
+12: The a payment record cannot be dated as happening before the item it's related to was purchased.
+Customers cannot pay for transactions that do not exist, data integrity issue.
 
 13: The catalog follows the conservation of matter.
-the creation of a transaction results in respective Catalog.numberInStock--
+If a item from the catalog is sold and shipped out, then we must decrement the amount in stock.
+This ensures we do not magically duplicate items.
 
 14: If a transaction is made for a unavailble catalog item,
 then the transaction cannot be complete, and the purchase is put on hold / inqueue.
@@ -52,20 +64,24 @@ Transactions on hold are then given priority based on date they where made; once
 back in stock; this achieves preorders.
 
 15: If a catalog item reaches it's eol date, then it can no longer
-be used in a it can no longer be bought nor ordered.
+be used in a transaction, meaning it can no longer be bought nor ordered.
+If a item is EOL, then we do not want to sell the item, or let people accidently
+get on the waiting list for a item that will never come.
 
 16: Warranties can only be claimed when they're still active, or
 current date <= warranty start date + lenght in days.
-warrantyClaim_claim can only be created when
-the current date <= warrantyDate + lenghtInDays
+This ensures only valid warranties are being claimed, if a warranty
+has expired, then it can't be claimed.
 
 17: Warranties can only begin after the Transaction has been made.
-warranty.warrantyDate >= transaction.dateMade
+A warranty isn't valid until the transaction it's cover has been started,
+data integrity issue.
 
 18: If the current amount owed on the transaction is <0, then a exchange overpayed, 
-and money is put back on a chosen card.
-if currentAmountOwed is <0, then a exchange overpayed, and money is
-put back on a chosen card
+and money is put back on a chosen card. That is, if a exchange is used on a new item
+that costs less than the original, then there will be extra worth left on the
+transaction, this can be put back on a card that the customer chooses when prompeted.
+
 
 
 

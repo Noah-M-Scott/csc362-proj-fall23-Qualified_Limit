@@ -1,28 +1,39 @@
-00: The date that an item is returned must be after the date of the original.
+00: If an item is returned, the date must be after the date it was originally purchased.
+The date that an item is returned must be after the date of the original.
 
-01: the currentAmountOwed in transactions is dynamically incremented and decremented by shippingData.shippingCost 
+01: The amount that a customer owes is effected by their shipping cost
+the currentAmountOwed in transactions is dynamically incremented and decremented by shippingData.shippingCost 
 
-02: the currentAmountOwed in transactions is dynamically incremented and decremented by financialData
+02: The amount that a customer owes is effected by their payments they make
+the currentAmountOwed in transactions is dynamically incremented and decremented by financialData
 if currentAmountOwed is 0, then no more payments (positive financialData) can be created
 
-03: the currentAmountOwed in transactions is dynamically incremented and decremented by exchanges
+03: The amount that a customer owes is effected by exchanges they may make
+the currentAmountOwed in transactions is dynamically incremented and decremented by exchanges
 if currentAmountOwed is 0, then no more exchages can be created
 
-04: the currentAmountOwed in transactions is dynamically incremented and decremented by warranties
+04: The amount that a customer owes is effected by the addition of a warranty
+the currentAmountOwed in transactions is dynamically incremented and decremented by warranties
 
-05: current_amount_paid is dynamically incremented and decremented by finanicalData
+05: The amount that a customer has already paid is incremented and decremented by the payments that they make
+current_amount_paid is dynamically incremented and decremented by finanicalData
 
-06: current_amount_paid is dynamically incremented and decremented by exchanges
+06: The amount that a customer has already paid is incremented and decremented by exchanges
+current_amount_paid is dynamically incremented and decremented by exchanges
 
-07: return row cannot be created if the transactionComplete bool is not True
+07: A return cannot be initiated until the transaction it seeks to undo has been completed.
+return row cannot be created if the transactionComplete bool is not True
 
-08: when a return happens, if it wasn't shipped (bought in store/digital/
+08:  If an item is returned without having been shipped, the customer is immediately reimbursed. 
+Otherwise, reimbursement waits until the company has recieved the item.
+when a return happens, if it wasn't shipped (bought in store/digital/
 preorder yet to be shipped or instock)
 then financialData putting the money back on a chosen card is made;
 if it was shipped, then only when the shipping back to the store is done
 is money put back on the card.
 
-09: warranty claim -> a replacement item is shipped out, Catalog.numberInStock--
+09: When a warranty claim is accepted, the associated item's inventory stock is reduced.
+warranty claim -> a replacement item is shipped out, Catalog.numberInStock--
 
 10: A transaction is not complete while there is a unpayed cost or the shipped item has not arrived
 
@@ -48,9 +59,12 @@ current date <= warranty start date + lenght in days.
 warrantyClaim_claim can only be created when
 the current date <= warrantyDate + lenghtInDays
 
-17: warranty.warrantyDate >= transaction.dateMade
+17: Warranties can only begin after the Transaction has been made.
+warranty.warrantyDate >= transaction.dateMade
 
-18: if currentAmountOwed is <0, then a exchange overpayed, and money is
+18: If the current amount owed on the transaction is <0, then a exchange overpayed, 
+and money is put back on a chosen card.
+if currentAmountOwed is <0, then a exchange overpayed, and money is
 put back on a chosen card
 
 

@@ -2,26 +2,29 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  _ 
+Statement:  _ If the current amount owed on the transaction is <0, then a exchange overpayed, 
+and money is put back on a chosen card.
 
-Constraint: _ 
+Constraint: _ if currentAmountOwed on a Transaction row is <0, then a exchange overpayed, and
+a incomplete FinacialData row is inserted so the client can select the card to put money back
+on.
 
-Type:     Database Oriented:     _ 
-          Application Oriented   _ 
+Type:     Database Oriented:     _ X
+          Application Oriented   _ X
 
 Category: Field Specific:        _ 
-          Relationship Specific: _ 
+          Relationship Specific: _ X
 
 Test On:  Insert:                _ 
           Delete:                _ 
-          Update:                _
+          Update:                _ X
 
 
 STRUCTURES AFFECTED
 
-Field Names: _ 
+Field Names: _ currentAmountOwed amountPayedAtPayment amountOwedAtPayment
 
-Table Names: _
+Table Names: _ FinancialData Transaction
 
 
 FIELD ELEMENTS AFFECTED
@@ -35,7 +38,7 @@ Logical Elements:  Key Type:            _
                    Uniqueness:          _ 
                    Null Support:        _ 
                    Values Entered By:   _ 
-                   Range of Values:     _ 
+                   Range of Values:     _ X 
                    Edit Rule:           _ 
 
 
@@ -43,13 +46,17 @@ RELATIONSHIP CHARACTERISTICS AFFECTED
 
     Deletion rule:              _
     Type of participation:      _
-    Degree of participation:    _
+    Degree of participation:    _ X
 
     
 ACTION TAKEN
 
-_ 
-
+_ During a update on a Transaction row if currentAmountOwed on a Transaction row is <0, then a 
+exchange overpayed, and a incomplete FinacialData row is inserted, with
+amountPayedAtPayment amountOwedAtPayment updated accordingly, but all else null.
+Next time the client is on the website, this impcomplete record will prompt them
+to enter the card to put the money back on. Once this record is completed, then the currentAmountOwed
+is returned to zero.
 
 NOTES: _
 

@@ -1,0 +1,25 @@
+Final Doc and Slides - Both
+Setup script and Management Script - Both
+
+PHP FILES:
+Home - Stephen
+Search results page - Noah
+Item pages - Stephen
+Shopping cart (transaction lister) - Noah
+Check out / Shipping - Noah
+Misc (About, store location, hot deals, small things that are trivial) - Stephen
+Warranty Management - Noah
+
+SQL FILES (insert update delete):
+Catalog - Stephen
+Descriptions - Stephen
+Discounts -Stephen
+EOLItems - Stephen
+Accounts -Stephen
+Transactions - Noah
+Warranties - Stephen
+WarrantyClaims - Noah
+FinancialData - Noah
+Exchanges - Noah
+Returns - Stephen 
+ShippingData - Noah

@@ -2,7 +2,7 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  The amount that a customer owes is effected by their payments they make
+Statement:  The amount that a customer owes is affected by their payments they make
 
 Constraint: financialData.amountPayedAtPayment will decrease the related transactions.currentAmountOwed
 

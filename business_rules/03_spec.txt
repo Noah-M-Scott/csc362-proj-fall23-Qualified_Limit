@@ -2,7 +2,7 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  The amount that a customer owes is effected by exchanges they may make
+Statement:  The amount that a customer owes is affected by exchanges they may make
 
 Constraint: exhanges.amountOwedAtExchange will effect the related transactions.currentAmountOwed
 

@@ -2,7 +2,7 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  The amount that a customer owes is effected by the addition of a warranty
+Statement:  The amount that a customer owes is affected by the addition of a warranty
 
 Constraint: warranties.warrantyCost will effect the related transactions.currentAmountOwed
 

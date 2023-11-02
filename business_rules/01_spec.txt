@@ -2,7 +2,7 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  The amount that a customer owes is effected by their shipping cost
+Statement:  The amount that a customer owes is affected by their shipping cost
 
 Constraint: When a shippingCost entry is made, the customer's amountOwed must be modified
 

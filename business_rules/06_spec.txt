@@ -4,7 +4,7 @@ RULE INFORMATION
 
 Statement:  The amount that a customer has already paid is incremented and decremented by exchanges
 
-Constraint: exchanges.amountOwedAtExchange will effect the related transactions.currentAmountPayed
+Constraint: exchanges.amountOwedAtExchange will affect the related transactions.currentAmountPayed
 
 Type:     Database Oriented:     _ 
           Application Oriented   X 

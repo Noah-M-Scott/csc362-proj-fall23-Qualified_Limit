@@ -2,21 +2,21 @@
 This is to maintain data integrity; as a item cannot be returned in a time before it was
 bought.
 
-01: The amount that a customer owes is effected by their shipping cost.
+01: The amount that a customer owes is affected by their shipping cost.
 As the company will be the ones to ship the items with a outside service,
 they need to recieve the shipping money before the transaction is complete.
 
-02: The amount that a customer owes is effected by their payments they make
+02: The amount that a customer owes is affected by their payments they make
 the currentAmountOwed in transactions is dynamically incremented and decremented by financialData.
 FinancialData keeps tracks of bank cards, a customer can pay for items with a bank cards,
 and they can also recieve extra money left over from a exchange onto their bank card.
 
-03: The amount that a customer owes is effected by exchanges they may make.
+03: The amount that a customer owes is affected by exchanges they may make.
 Exchanges can help pay for items, as the worth of the exchanged item is used
 to cover the cost of the new item.
 However, if currentAmountOwed is 0, then no more exchages can be created.
 
-04: The amount that a customer owes is effected by the addition of a warranty.
+04: The amount that a customer owes is affected by the addition of a warranty.
 Warranties cost extra, and their cost is reflected in the transaction's running
 total.
 
@@ -63,13 +63,13 @@ then the transaction cannot be complete, and the purchase is put on hold / inque
 Transactions on hold are then given priority based on date they where made; once the item
 back in stock; this achieves preorders.
 
-15: If a catalog item reaches it's eol date, then it can no longer
+15: If a catalog item reaches it's EOL date, then it can no longer
 be used in a transaction, meaning it can no longer be bought nor ordered.
 If a item is EOL, then we do not want to sell the item, or let people accidently
 get on the waiting list for a item that will never come.
 
 16: Warranties can only be claimed when they're still active, or
-current date <= warranty start date + lenght in days.
+current date <= warranty start date + length in days.
 This ensures only valid warranties are being claimed, if a warranty
 has expired, then it can't be claimed.
 

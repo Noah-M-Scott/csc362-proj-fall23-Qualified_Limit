@@ -4,7 +4,7 @@ RULE INFORMATION
 
 Statement:  The amount that a customer has already paid is incremented and decremented by the payments that they make
 
-Constraint: financialData.amountPayedAtPayment will effect the related transactions.currentAmountPayed
+Constraint: financialData.amountPayedAtPayment will affect the related transactions.currentAmountPayed
 
 Type:     Database Oriented:     _ 
           Application Oriented   X 

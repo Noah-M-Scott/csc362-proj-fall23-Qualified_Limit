@@ -1,4 +1,3 @@
-/* Create the database (dropping the previous version if necessary */
 USE upward;
 
 CREATE TABLE catalog (

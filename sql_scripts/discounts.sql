@@ -1,7 +1,7 @@
 USE upward;
 
 CREATE TABLE discounts (
-    catalogId               INT unsigned NOT NULL Unique,
+    catalogId               INT unsigned NOT NULL UNIQUE,
     priceOffPercent         INT(3) NOT NULL,
     startDate               DATE NOT NULL,
     endDate                 DATE NOT NULL,

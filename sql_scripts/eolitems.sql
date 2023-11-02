@@ -5,6 +5,5 @@ CREATE TABLE eolitems (
     dateDiscontinued        DATE NOT NULL,
     PRIMARY KEY             (catalogId, dateDiscontinued),
     FOREIGN KEY             (catalogId) REFERENCES
-                                catalog(catalogId)
-       
+                                catalog(catalogId)       
 );

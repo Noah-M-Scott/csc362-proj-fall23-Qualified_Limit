@@ -1,6 +1,6 @@
-USE upwards;
+USE upward;
 
-CREATE TABLE descriptions (
+CREATE TABLE discounts (
     catalogId               INT unsigned NOT NULL Unique,
     priceOffPercent         INT(3) NOT NULL,
     startDate               DATE NOT NULL,

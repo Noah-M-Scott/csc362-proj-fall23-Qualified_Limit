@@ -1,9 +1,11 @@
+DELIMITER //
+
 CREATE PROCEDURE transactionInsert(catalogIdIn INT, accountIdIn INT)
 BEGIN
 
-SET @PRICE = (SELECT currentPrice FROM catalog WHERE catalogId = catalogIdIn);
+SELECT currentPrice INTO @PRICE FROM catalog WHERE catalogId = catalogIdIn LIMIT 1;
 
-SET @AMOUNT = (SELECT numberInStock FROM catalog WHERE catalogId = catalogIdIn);
+SELECT numberInStock INTO @AMOUNT FROM catalog WHERE catalogId = catalogIdIn LIMIT 1;
 
 INSERT INTO BaseTransactions (
        catalog_catalogId,
@@ -24,3 +26,9 @@ VALUES (catalogId,
        (@AMOUNT > 0));
 
 END;
+//
+
+DELIMITER ;
+
+
+

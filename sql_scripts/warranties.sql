@@ -7,6 +7,6 @@ CREATE TABLE warranties (
     warrantyDate            DATE NOT NULL,
     lengthInDays            INT NOT NULL NOT NULL,
     PRIMARY KEY             (warrantyId, transactionId),
-    FOREIGN KEY             transactionId REFERENCES
+    FOREIGN KEY             (transactionId) REFERENCES
                                 Transactions(transaction_transactionId)
 )

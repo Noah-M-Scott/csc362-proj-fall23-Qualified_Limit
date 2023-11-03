@@ -1,9 +1,9 @@
-CREATE PROCEDURE transactionInsert(catalogId INT, accountId INT)
+CREATE PROCEDURE transactionInsert(catalogIdIn INT, accountIdIn INT)
 BEGIN
 
-SET @PRICE = (SELECT catalog_currentPrice FROM Catalogs WHERE catalog_catalogId = catalogId);
+SET @PRICE = (SELECT currentPrice FROM catalog WHERE catalogId = catalogIdIn);
 
-SET @AMOUNT = (SELECT catalog_numberInStock FROM Catalogs WHERE catalog_catalogId = catalogId);
+SET @AMOUNT = (SELECT numberInStock FROM catalog WHERE catalogId = catalogIdIn);
 
 INSERT INTO BaseTransactions (
        catalog_catalogId,

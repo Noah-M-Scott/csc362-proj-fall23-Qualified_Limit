@@ -2,10 +2,10 @@ CREATE TABLE BaseTransactions (
     transaction_transactionId INT AUTO_INCREMENT,
     PRIMARY KEY(transaction_transactionId),
 
-    catalog_catalogId INT,
+    catalog_catalogId INT unsigned,
     account_accountId INT,
-    FOREIGN KEY (catalog_catalogId) REFERENCES Catalogs (catalog_catalogId),
-    FOREIGN KEY (account_accountId) REFERENCES Accounts (account_accountId),
+    FOREIGN KEY (catalog_catalogId) REFERENCES catalog (catalogId),
+    FOREIGN KEY (account_accountId) REFERENCES accounts (accountId),
 
     transaction_dateMade DATETIME,
     transaction_originalPriceAtTransaction DECIMAL(8,2),

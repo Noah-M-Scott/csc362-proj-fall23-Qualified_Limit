@@ -8,5 +8,5 @@ CREATE TABLE warranties (
     lengthInDays            INT NOT NULL NOT NULL,
     PRIMARY KEY             (warrantyId, transactionId),
     FOREIGN KEY             transactionId REFERENCES
-                                transactions(transactionId)
+                                Transactions(transaction_transactionId)
 )

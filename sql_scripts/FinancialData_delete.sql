@@ -1,6 +1,6 @@
 DELIMITER //
 
-CREATE PROCEDURE transactionDelete(transactionIdIn INT)
+CREATE PROCEDURE transactionUpdate(transactionIdIn INT)
 BEGIN
 
 

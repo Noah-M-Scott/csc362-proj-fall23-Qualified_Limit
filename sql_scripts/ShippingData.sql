@@ -1,6 +1,6 @@
 CREATE TABLE BaseShippingData (
     transaction_transactionId INT,
-    shippingDatum_trackingId INT,
+    shippingDatum_trackingId VARCHAR(128),
 
     PRIMARY KEY (transaction_transactionId, shippingDatum_trackingId),
     FOREIGN KEY (transaction_transactionId) REFERENCES Transactions (transaction_transactionId),
@@ -20,3 +20,7 @@ SELECT transaction_transactionId,
        shippingDatum_shippingService,
        shippingDatum_itemArrivedBool
        FROM BaseShippingData WHERE deleted = FALSE;
+
+SOURCE ShippingData_insert.sql
+SOURCE ShippingData_update.sql
+SOURCE ShippingData_delete.sql

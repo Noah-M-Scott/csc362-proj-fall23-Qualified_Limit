@@ -15,7 +15,7 @@ SOURCE Exchanges.sql;
 SOURCE FinancialData.sql;
 SOURCE returns.sql;
 SOURCE warranties.sql;
-
+SET FOREIGN_KEY_CHECKS=1;
 
 SHOW TABLES;
 

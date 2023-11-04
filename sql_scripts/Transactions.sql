@@ -28,3 +28,5 @@ SELECT transaction_transactionId,
        transaction_onHold FROM BaseTransactions WHERE deleted = FALSE;
 
 SOURCE Transaction_Insertion.sql
+SOURCE Transaction_update.sql
+SOURCE Transaction_delete.sql

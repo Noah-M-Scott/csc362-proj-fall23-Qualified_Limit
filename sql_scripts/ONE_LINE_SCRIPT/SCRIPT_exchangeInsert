@@ -1,1 +1,1 @@
-exchangeInsert(?);
+CALL exchangeInsert(?);

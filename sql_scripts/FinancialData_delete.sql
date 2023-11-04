@@ -1,12 +1,12 @@
 DELIMITER //
 
-CREATE PROCEDURE transactionUpdate(transactionIdIn INT)
+CREATE PROCEDURE financialDataDelete(financialIdIn INT)
 BEGIN
 
 
-UPDATE BaseTransactions
+UPDATE BaseFinancialData
    SET deleted = TRUE
- WHERE transaction_transactionId = transactionIdIn;
+ WHERE financialDatum_financialId = financialIdIn;
 
 END;
 //

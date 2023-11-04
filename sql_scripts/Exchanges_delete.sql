@@ -1,10 +1,10 @@
 DELIMITER //
 
-CREATE PROCEDURE transactionUpdate(transactionIdIn INT)
+CREATE PROCEDURE exchangeDelete(transactionIdIn INT)
 BEGIN
 
 
-UPDATE BaseTransactions
+UPDATE BaseExchanges
    SET deleted = TRUE
  WHERE transaction_transactionId = transactionIdIn;
 

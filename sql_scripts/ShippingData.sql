@@ -20,3 +20,5 @@ SELECT transaction_transactionId,
        shippingDatum_shippingService,
        shippingDatum_itemArrivedBool
        FROM BaseShippingData WHERE deleted = FALSE;
+
+SOURCE ShippingData_delete.sql

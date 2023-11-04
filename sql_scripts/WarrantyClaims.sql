@@ -11,3 +11,5 @@ CREATE VIEW WarrantyClaims AS
 SELECT warranty_warrantyId, warrantyClaim_claim
   FROM BaseWarrantyClaims
  WHERE deleted = FALSE;
+
+SOURCE WarrantyClaims_delete.sql

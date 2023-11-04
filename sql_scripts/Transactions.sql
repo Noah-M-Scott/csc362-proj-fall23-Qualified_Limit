@@ -29,3 +29,4 @@ SELECT transaction_transactionId,
 
 SOURCE Transaction_Insertion.sql
 SOURCE Transaction_update.sql
+SOURCE Transaction_delete.sql

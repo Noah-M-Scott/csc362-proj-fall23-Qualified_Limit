@@ -1,1 +1,1 @@
-exchangeDelete(?);
+CALL exchangeDelete(?);

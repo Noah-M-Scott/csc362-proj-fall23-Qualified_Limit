@@ -1,6 +1,6 @@
 DELIMITER //
 
-CREATE PROCEDURE eolitemsInsert(catalogIdIn INT, dateDiscontinuedIn DATE)
+CREATE PROCEDURE eolitemsUpdate(catalogIdIn INT, dateDiscontinuedIn DATE)
 BEGIN
 
 UPDATE BaseEOLItems

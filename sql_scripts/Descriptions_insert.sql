@@ -3,7 +3,7 @@ DELIMITER //
 CREATE PROCEDURE descriptionsInsertion(catalogIdIn INT, textIn VARCHAR(5000))
 BEGIN
 
-INSERT INTO baseDescriptions (
+INSERT INTO BaseDescriptions (
        catalogId, 
        text)
 VALUES (catalogIdIn,

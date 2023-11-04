@@ -19,4 +19,5 @@ SELECT exchange_amountOwedAtExchange,
        exchange_returnTrackId
        FROM BaseExchanges WHERE deleted = FALSE;
 
+SOURCE Exchanges_insert.sql
 SOURCE Exchanges_delete.sql

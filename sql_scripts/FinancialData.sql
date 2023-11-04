@@ -23,4 +23,5 @@ SELECT financialDatum_financialId,
        financialDatum_datePayed 
        FROM BaseFinancialData WHERE deleted = FALSE;
 
+SOURCE FinancialData_insert.sql
 SOURCE FinancialData_delete.sql

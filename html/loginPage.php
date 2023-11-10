@@ -35,51 +35,33 @@
     $dblist = "USE upward;";                        //set the db
     $result = $conn->query($dblist);                //
     
-    $dblist = "SELECT userName FROM accounts";
+    $dblist = "SELECT userName, userPassWord FROM accounts";
     $result = $conn->query($dblist);
 ?>
 
 <?php 
     session_start();                                                //start session
 
-    if(!array_key_exists('deleteNum', $_SESSION)){                  //reset del number
-        $_SESSION['deleteNum'] = 0;
-    }
-
     if(isset($_POST['logoutBtn'])){                                 //are we loging out
-        $_SESSION['deleteNum'] = 0;                                 //reset again
         session_unset();                                            //log out
         session_destroy();
         $edited = TRUE;                                             //reload
     }else if(isset($_POST['loginBtn'])){                            //else are we loging in
-        $resdata = $result->fetch_all();                            //get the table
-        $del_stmt = $conn->prepare("DELETE FROM instruments WHERE (? = instrument_id);");
-        $del_stmt->bind_param('i', $id);                            //prepared delete stmt
-    
-        for($i = 0; $i < $result->num_rows; $i++){                  //for all the rows
-            $id = $resdata[$i][0];                                  //get the id...
-            $key = "checkbox" . $id;                                //...and use it to get the checkbox
-            if(isset($_POST[$key]) && $resdata[$i][2] == ""){       //check to see if the box is set, and instrmnt not checked out
-                $_SESSION['deleteNum'] += 1;                        //increment counter
-                if(!$del_stmt->execute()){                          //execute prprd stmt
-                    echo $conn->error;                              //err on fail
+        if($_POST['username'] !== ""){                              //did they bother to enter a usrname
+            for($i = 0; $i < $result->num_rows; $i++){                  //for all the rows
+                if($resdata[$i][0] == $_POST['username']){
+                    if($resdata[$i][1] == $_POST['password']){
+                        $_SESSION['username'] = $_POST['username'];             //if so, set it
+                        $_SESSION['loginTime'] = time();                        //the time we log in
+                        $edited = TRUE;                                         //reload
+                    }
                 }
             }
-        }
-    
-    
-    
-        if($_POST['username'] !== ""){                              //did they bother to enter a usrname
-            $_SESSION['username'] = $_POST['username'];             //if so, set it
-            $_SESSION['loginTime'] = time();                        //the time we log in
-            $_SESSION['deleteNum'] = 0;                             //reset del number again
-            $edited = TRUE;                                         //reload
         }
     }
 
     if(isset($_SESSION['username'])){                               //check we're logged in
         if(time() - $_SESSION['loginTime'] > 1800){                 //if we've been logged in > 30mins
-            $_SESSION['deleteNum'] = 0;                             //reset again
             session_unset();                                        //unlog in
             session_destroy();
             $edited = TRUE;                                         //reload page
@@ -104,6 +86,7 @@ if(isset($_SESSION['username'])){   //if there's a username, we're logged in
     echo "<input type=\"submit\" name=\"logoutBtn\" value=\"Log Out\" method=POST/>";
 }else{                              //else, log in prompt
     echo "<input type=text name='username' placeholder='Enter name...'/>";
+    echo "<input type=text name='password' placeholder='Enter name...'/>";
     echo "<input type=\"submit\" name=\"loginBtn\" value=\"Log In\" method=POST/>";
 }
 ?>

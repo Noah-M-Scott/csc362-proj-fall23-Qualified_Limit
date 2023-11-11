@@ -1,10 +1,11 @@
-<html>
 <?php
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 ?>
+
+<html>
 
 <?php
     $config = parse_ini_file('/home/noahm/mysql.ini');
@@ -81,7 +82,7 @@
         $makestmt->bind_param('ssss', $_POST['email'], $_POST['phone'], $_POST['username'], $_POST['password']);
 
         for($i = 0; $i < $result->num_rows; $i++){
-            if($resdata[$i][3] == $_POST['username'])
+            if($resdata[$i][3] === $_POST['username'])
                 goto usernameTaken;                         //skip insertion if username taken
         }
         
@@ -124,7 +125,7 @@ if(isset($_POST['wannaLog'])){
     echo "<p><input type=text name='password' placeholder='Enter password...'/></p>";
     echo "<p><input type=text name='email' placeholder='Enter Email...'/></p>";
     echo "<p><input type=text name='phone' placeholder='Enter Phone Number...'/></p>";
-    echo "<p><input type=\"submit\" name=\"makeAcount\" value=\"Make Account\" method=POST/></p>";
+    echo "<p><input type=\"submit\" name=\"makeAccount\" value=\"Make Account\" method=POST/></p>";
 }else{
     if(isset($_SESSION['username'])){   //if there's a username, we're logged in
         echo "<p>Hello ";

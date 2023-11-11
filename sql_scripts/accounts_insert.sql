@@ -5,7 +5,7 @@ BEGIN
 
 INSERT INTO accounts (
        accountEmail, 
-       phone, 
+       accountPhone, 
        userName, userPassWord)
 VALUES (accountEmailIn,
        phoneIn,

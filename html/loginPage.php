@@ -102,8 +102,13 @@
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
-        $makestmt = $conn->prepare(file_get_contents('../sql_scripts/ONE_LINE_SCRIPT/SCRIPT_accountInsertion.sql'));
-        $makestmt->bind_param('ssss', $_POST['email'], $_POST['phone'], $_POST['username'], $_POST['password']);
+        $makestmt = $conn->prepare(file_get_contents('../sql_scripts/ONE_LINE_SCRIPT/SCRIPT_accountDelete.sql'));
+        $makestmt->bind_param('i', $accountNumber);
+
+        for($i = 0; $i < $result->num_rows; $i++){
+            if($resdata[$i][3] === $_POST['username'])
+                $accountNumber = $i;
+        }
         
         if(!$makestmt->execute()){                          //execute prprd stmt
             echo $conn->error;                              //err on fail

@@ -106,14 +106,19 @@
         $makestmt->bind_param('i', $accountNumber);
 
         for($i = 0; $i < $result->num_rows; $i++){
-            if($resdata[$i][3] === $_POST['username'])
+            if($resdata[$i][3] === $_SESSION['username']){
                 $accountNumber = $i;
+                break;
+            }
         }
-        
+
         if(!$makestmt->execute()){                          //execute prprd stmt
             echo $conn->error;                              //err on fail
         }
-        $edited = TRUE;
+
+        session_unset();                                            //log out
+        session_destroy();
+        $edited = TRUE;       
     }
 ?>
 

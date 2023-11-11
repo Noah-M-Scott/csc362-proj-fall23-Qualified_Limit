@@ -8,7 +8,7 @@
 <html>
 
 <?php
-    $config = parse_ini_file('/home/upfrog42/CSC362_Rout/html/mysql.ini');
+    $config = parse_ini_file('/home/noahm/mysql.ini');
     $dbhost = $config['mysqli.default_host'];
     $dbuser = $config['mysqli.default_user'];
     $dbpass = $config['mysqli.default_pw'];
@@ -34,7 +34,7 @@ $quantity_query = 'SELECT COUNT(catalogId) FROM catalog;';
 $quantity = $conn->query($quantity_query);
 $quantity_actual = $quantity->fetch_all();
 
-
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -45,8 +45,10 @@ $quantity_actual = $quantity->fetch_all();
 
     <body>
         <h1>Welcome to the Upwards Outfitters About page!</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>        
-        <p>We currently have <?php echo $quantity_actual[0][0] ?> items in our catalog.</p>
+        <p>We are located at [ADDRESS]</p>
+        <p>We were founded by [PERSON] and [PERSON] in [YEAR], and ever since have been driven to excellence in customer service.</p>        
+        <p>Our hours are: XXXXXX</p>
+        <p>We currently have <?php echo $quantity_actual[0][0] ?> items in our catalog. - but it's a dynamic zero, so that will change!</p>
 
     </body>
-
+</html>

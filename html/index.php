@@ -8,7 +8,7 @@
 <html>
 
 <?php
-    $config = parse_ini_file('/home/upfrog42/CSC362_Rout/html/mysql.ini');
+    $config = parse_ini_file('/home/noahm/mysql.ini');
     $dbhost = $config['mysqli.default_host'];
     $dbuser = $config['mysqli.default_user'];
     $dbpass = $config['mysqli.default_pw'];
@@ -38,7 +38,7 @@
 
     <body>
         <h1>Welcome to Upwards Outfitters, [TOWN]'s premier provider of high-quality climbing and camping equipment since [YEAR]!</h1>
-        <p>Already have an account with us? Click <a href="loginPage.php">HERE</a> to log in!</p>
+        <p>To make an account with us, or sign in to your existing account, Click <a href="loginPage.php">HERE</a> to log in!</p>
         <p>Know what you want? Click <a href ="searchPage.php">HERE</a> for our search engine!</p>
         <p>Want more information? Click <a href="aboutPage.php">HERE</a> for our About!</p>
         <p>Just browsing? See below for a list of our product categories! We're always expanding our stock, so be sure to check back often!</p>
@@ -52,9 +52,6 @@
 ?>
 
 <table>
-    
-    
-    
     <?php
     for ($i=0; $i<$result->num_rows; $i++)
     {

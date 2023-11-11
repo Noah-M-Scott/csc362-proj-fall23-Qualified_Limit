@@ -22,8 +22,6 @@
         echo "Errno: " . $conn->connect_errno . "\n";
         echo "Error: " . $conn->connect_error . "\n";
         exit; // Quit this PHP script if the connection fails.
-    } else {
-        echo "<p>Connected Successfully!</p>";
     }
 ?>
 
@@ -37,6 +35,7 @@
     
     $dblist = "SELECT userName, userPassWord FROM accounts";
     $result = $conn->query($dblist);
+    $resdata = $result->fetch_all();
 ?>
 
 <?php 
@@ -49,8 +48,8 @@
     }else if(isset($_POST['loginBtn'])){                            //else are we loging in
         if($_POST['username'] !== ""){                              //did they bother to enter a usrname
             for($i = 0; $i < $result->num_rows; $i++){                  //for all the rows
-                if($resdata[$i][0] == $_POST['username']){
-                    if($resdata[$i][1] == $_POST['password']){
+                if($resdata[$i][0] == $_POST['username']){              //check password
+                    if($resdata[$i][1] == $_POST['password']){          //check username
                         $_SESSION['username'] = $_POST['username'];             //if so, set it
                         $_SESSION['loginTime'] = time();                        //the time we log in
                         $edited = TRUE;                                         //reload
@@ -70,6 +69,21 @@
 
 ?>
 
+
+<?php
+    if(isset($_POST['makeAccount'])){
+        $dblist = "SELECT * FROM accounts";
+        $result = $conn->query($dblist);
+        $resdata = $result->fetch_all();
+
+        $makestmt = $conn->prepare(file_get_contents('../sql_scripts/ONE_LINE_SCRIPT/SCRIPT_accountInsertion.sql'));
+        $del_stmt->bind_param('i', $id);
+        
+    }
+?>
+
+
+
 <?php 
     if($edited == TRUE){                                            //if we need to reload the page...
         header("Location: {$_SERVER['REQUEST_URI']}", true, 303);   //...redirect design pattern
@@ -77,17 +91,39 @@
     }
 ?>
 
-<form action="manageInstruments.php" method=POST>                  <!-- start of form -->
+<form action="loginPage.php" method=POST>                  <!-- start of form -->
 <?php
-if(isset($_SESSION['username'])){   //if there's a username, we're logged in
-    echo "<p>Hello ";
-    echo $_SESSION['username'];
-    echo "</p>";
-    echo "<input type=\"submit\" name=\"logoutBtn\" value=\"Log Out\" method=POST/>";
-}else{                              //else, log in prompt
-    echo "<input type=text name='username' placeholder='Enter name...'/>";
-    echo "<input type=text name='password' placeholder='Enter name...'/>";
-    echo "<input type=\"submit\" name=\"loginBtn\" value=\"Log In\" method=POST/>";
+if(isset($_POST['wannaLog'])){
+    if(isset($_SESSION['username'])){   //if there's a username, we're logged in
+        echo "<p>Hello ";
+        echo $_SESSION['username'];
+        echo "</p>";
+        echo "<input type=\"submit\" name=\"logoutBtn\" value=\"Log Out\" method=POST/>";
+        echo "<input type=\"submit\" name=\"accountDlt\" value=\"Delete Account\" method=POST/>";
+    }else{                              //else, log in prompt
+        echo "<p>Login</p>";
+        echo "<p><input type=text name='username' placeholder='Enter username...'/></p>";
+        echo "<p><input type=text name='password' placeholder='Enter password...'/></p>";
+        echo "<p><input type=\"submit\" name=\"loginBtn\" value=\"Log In\" method=POST/></p>";
+    }
+}else if(isset($_POST['wannaMake'])){
+    echo "<p>Make Account</p>";
+    echo "<p><input type=text name='username' placeholder='Enter username...'/></p>";
+    echo "<p><input type=text name='password' placeholder='Enter password...'/></p>";
+    echo "<p><input type=text name='email' placeholder='Enter Email...'/></p>";
+    echo "<p><input type=text name='phone' placeholder='Enter Phone Number...'/></p>";
+    echo "<p><input type=\"submit\" name=\"makeAcount\" value=\"Make Account\" method=POST/></p>";
+}else{
+    if(isset($_SESSION['username'])){   //if there's a username, we're logged in
+        echo "<p>Hello ";
+        echo $_SESSION['username'];
+        echo "</p>";
+    }else{
+        echo "<p>Not Logged In...</p>";
+    }
+    echo "<p>Account</p>";
+    echo "<p><input type=\"submit\" name=\"wannaLog\" value=\"Log In\" method=POST/></p>";
+    echo "<p><input type=\"submit\" name=\"wannaMake\" value=\"Make Account\" method=POST/></p>";
 }
 ?>
 </form>

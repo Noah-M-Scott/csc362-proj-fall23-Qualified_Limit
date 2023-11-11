@@ -1,6 +1,6 @@
 DELIMITER //
 
-CREATE PROCEDURE accountsUpdate(accountIdIn INT, accountEmailIn VARCHAR(80), phoneIn INT(12), userNameIn VARCHAR(30), userPassWordIn VARCHAR(30))
+CREATE PROCEDURE accountsUpdate(accountIdIn INT, accountEmailIn VARCHAR(80), phoneIn CHAR(10), userNameIn VARCHAR(30), userPassWordIn VARCHAR(30))
 BEGIN
 
 UPDATE baseAccounts

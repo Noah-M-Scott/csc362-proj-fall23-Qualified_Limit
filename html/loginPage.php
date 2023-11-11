@@ -96,6 +96,22 @@
     }
 ?>
 
+<?php
+    if(isset($_POST['deleteAccount'])){
+        $dblist = "SELECT * FROM accounts";
+        $result = $conn->query($dblist);
+        $resdata = $result->fetch_all();
+
+        $makestmt = $conn->prepare(file_get_contents('../sql_scripts/ONE_LINE_SCRIPT/SCRIPT_accountInsertion.sql'));
+        $makestmt->bind_param('ssss', $_POST['email'], $_POST['phone'], $_POST['username'], $_POST['password']);
+        
+        if(!$makestmt->execute()){                          //execute prprd stmt
+            echo $conn->error;                              //err on fail
+        }
+        $edited = TRUE;
+    }
+?>
+
 
 <?php 
     if($edited == TRUE){                                            //if we need to reload the page...
@@ -112,7 +128,7 @@ if(isset($_POST['wannaLog'])){
         echo $_SESSION['username'];
         echo "</p>";
         echo "<input type=\"submit\" name=\"logoutBtn\" value=\"Log Out\" method=POST/>";
-        echo "<input type=\"submit\" name=\"accountDlt\" value=\"Delete Account\" method=POST/>";
+        echo "<input type=\"submit\" name=\"deleteAccount\" value=\"Delete Account\" method=POST/>";
     }else{                              //else, log in prompt
         echo "<p>Login</p>";
         echo "<p><input type=text name='username' placeholder='Enter username...'/></p>";
@@ -135,7 +151,7 @@ if(isset($_POST['wannaLog'])){
         echo "<p>Not Logged In...</p>";
     }
     echo "<p>Account</p>";
-    echo "<p><input type=\"submit\" name=\"wannaLog\" value=\"Log In\" method=POST/></p>";
+    echo "<p><input type=\"submit\" name=\"wannaLog\" value=\"Log In/Out\" method=POST/></p>";
     echo "<p><input type=\"submit\" name=\"wannaMake\" value=\"Make Account\" method=POST/></p>";
 }
 ?>

@@ -7,6 +7,7 @@ SOURCE catalog.sql;
 SOURCE descriptions.sql;
 SOURCE discounts.sql;
 SOURCE accounts.sql;
+SOURCE categories.sql;
 SOURCE eolitems.sql;
 SOURCE Transactions.sql;
 SOURCE WarrantyClaims.sql;

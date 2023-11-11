@@ -34,12 +34,12 @@
     $dblist = "USE upward;";                        //set the db
     $result = $conn->query($dblist);                //
     
-    $dblist = "SELECT userName, userPassWord FROM accounts";
+    $dblist = "SELECT * FROM accounts";
     $result = $conn->query($dblist);
     $resdata = $result->fetch_all();
 ?>
 
-<?php 
+<?php
     session_start();                                                //start session
 
     if(isset($_POST['logoutBtn'])){                                 //are we loging out
@@ -48,9 +48,10 @@
         $edited = TRUE;                                             //reload
     }else if(isset($_POST['loginBtn'])){                            //else are we loging in
         for($i = 0; $i < $result->num_rows; $i++){                  //for all the rows
-            if($resdata[$i][0] == $_POST['username']){              //check password
-                if($resdata[$i][1] == $_POST['password']){          //check username
+            if($resdata[$i][3] == $_POST['username']){              //check password
+                if($resdata[$i][4] == $_POST['password']){          //check username
                     $_SESSION['username'] = $_POST['username'];             //if so, set it
+                    $_SESSION['accountId'] = $resdata[$i][0];
                     $_SESSION['loginTime'] = time();                        //the time we log in
                     $edited = TRUE;                                         //reload
                     goto successLogIn;
@@ -98,19 +99,14 @@
 
 <?php
     if(isset($_POST['deleteAccount'])){
-        $dblist = "SELECT * FROM accounts";
+        $dblist = "SELECT userName FROM accounts";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
         $makestmt = $conn->prepare(file_get_contents('../sql_scripts/ONE_LINE_SCRIPT/SCRIPT_accountDelete.sql'));
-        $makestmt->bind_param('i', $accountNumber);
+        $makestmt->bind_param('i', $_SESSION['accountId']);
 
-        for($i = 0; $i < $result->num_rows; $i++){
-            if($resdata[$i][3] === $_SESSION['username']){
-                $accountNumber = $i;
-                break;
-            }
-        }
+        echo $_SESSION['accountId'];
 
         if(!$makestmt->execute()){                          //execute prprd stmt
             echo $conn->error;                              //err on fail

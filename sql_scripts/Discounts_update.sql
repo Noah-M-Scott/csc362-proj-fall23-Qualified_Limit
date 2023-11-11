@@ -8,7 +8,7 @@ UPDATE BaseDiscounts
        priceOffPercent = priceOffPercentIn, 
        startDate = startDateIn,
        endDate = endDateIn
-WHERE catalogId = catalogIdIn, startDate = startDateIn, endDate = endDateIn;
+WHERE catalogId = catalogIdIn AND startDate = startDateIn AND endDate = endDateIn;
 
 END;
 //

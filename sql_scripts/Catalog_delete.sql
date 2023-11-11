@@ -11,4 +11,4 @@ UPDATE BaseCatalog
 END;
 //
 
-DELIMTER ;
+DELIMITER ;

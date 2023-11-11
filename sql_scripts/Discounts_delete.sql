@@ -5,10 +5,10 @@ BEGIN
 
 UPDATE BaseDiscounts
    SET deleted = TRUE
- WHERE catalogId = catalogIdIn, startDate = startDateIn, endDate = endDateIn;
+ WHERE catalogId = catalogIdIn AND startDate = startDateIn AND endDate = endDateIn;
 
 
 END;
 //
 
-DELIMTER ;
+DELIMITER ;

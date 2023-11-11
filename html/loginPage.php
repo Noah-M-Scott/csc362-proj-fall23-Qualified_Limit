@@ -46,17 +46,18 @@
         session_destroy();
         $edited = TRUE;                                             //reload
     }else if(isset($_POST['loginBtn'])){                            //else are we loging in
-        if($_POST['username'] !== ""){                              //did they bother to enter a usrname
-            for($i = 0; $i < $result->num_rows; $i++){                  //for all the rows
-                if($resdata[$i][0] == $_POST['username']){              //check password
-                    if($resdata[$i][1] == $_POST['password']){          //check username
-                        $_SESSION['username'] = $_POST['username'];             //if so, set it
-                        $_SESSION['loginTime'] = time();                        //the time we log in
-                        $edited = TRUE;                                         //reload
-                    }
+        for($i = 0; $i < $result->num_rows; $i++){                  //for all the rows
+            if($resdata[$i][0] == $_POST['username']){              //check password
+                if($resdata[$i][1] == $_POST['password']){          //check username
+                    $_SESSION['username'] = $_POST['username'];             //if so, set it
+                    $_SESSION['loginTime'] = time();                        //the time we log in
+                    $edited = TRUE;                                         //reload
+                    goto successLogIn;
                 }
             }
         }
+        echo "<p>Failed to Log in</p>";
+        successLogIn:;
     }
 
     if(isset($_SESSION['username'])){                               //check we're logged in
@@ -77,11 +78,22 @@
         $resdata = $result->fetch_all();
 
         $makestmt = $conn->prepare(file_get_contents('../sql_scripts/ONE_LINE_SCRIPT/SCRIPT_accountInsertion.sql'));
-        $del_stmt->bind_param('i', $id);
+        $makestmt->bind_param('ssss', $_POST['email'], $_POST['phone'], $_POST['username'], $_POST['password']);
+
+        for($i = 0; $i < $result->num_rows; $i++){
+            if($resdata[$i][3] == $_POST['username'])
+                goto usernameTaken;                         //skip insertion if username taken
+        }
         
+        if(!$makestmt->execute()){                          //execute prprd stmt
+            echo $conn->error;                              //err on fail
+        }
+        $edited = TRUE;
+
+        usernameTaken:;
+        echo "<p>User name taken</p>";
     }
 ?>
-
 
 
 <?php 

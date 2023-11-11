@@ -4,8 +4,8 @@ USE upward;
 
 SET FOREIGN_KEY_CHECKS=0;
 SOURCE catalog.sql;
-SOURCE discounts.sql;
 SOURCE descriptions.sql;
+SOURCE discounts.sql;
 SOURCE accounts.sql;
 SOURCE eolitems.sql;
 SOURCE Transactions.sql;

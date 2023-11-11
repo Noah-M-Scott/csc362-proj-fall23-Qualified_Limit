@@ -11,4 +11,4 @@ UPDATE BaseDescription
 END;
 //
 
-DELIMTER ;
+DELIMITER ;

@@ -11,4 +11,4 @@ UPDATE BaseReturns
 END;
 //
 
-DELIMTER ;
+DELIMITER ;

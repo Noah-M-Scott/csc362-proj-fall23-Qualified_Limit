@@ -5,8 +5,8 @@ BEGIN
 
 UPDATE BaseEOLItems
    SET catalogId = catalogIdIn, 
-       dateDiscontinued = dateDiscontinuedIn, 
-WHERE catalogId = catalogIdIn, dateDiscontinued = dateDiscontinuedIn;
+       dateDiscontinued = dateDiscontinuedIn
+WHERE catalogId = catalogIdIn AND dateDiscontinued = dateDiscontinuedIn;
 
 END;
 //

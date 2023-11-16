@@ -3,15 +3,11 @@ DELIMITER //
 CREATE PROCEDURE warrantyUpdate(TransactionIdIn INT, warrantyCostIn DECIMAL(8,2), warrantyDateIn DATE, lengthInDaysIn INT)
 BEGIN
 
-INSERT INTO BaseWarranties (
-       transactionId, 
-       warrantyCost, 
-       warrantyDate,
-       lengthInDays)
-VALUES (TransactionIdIn,
-       warrantyCostIn,
-       warrantyDateIn,
-       lengthInDaysIn)
+UPDATE BaseWarranties
+   SET transactionId = transactionIdIn, 
+       warrantyCost = warrantyCostIn, 
+       warrantyDate = warrantyDate,
+       lengthInDays = lengthInDaysIn
 WHERE  warrantyId = warrantyIdIn;
 
 END;

@@ -16,6 +16,13 @@ SOURCE Exchanges.sql;
 SOURCE FinancialData.sql;
 SOURCE returns.sql;
 SOURCE warranties.sql;
+
+
+CALL categoryInsertion('Rope');
+CALL categoryInsertion('Shoes');
+CALL categoryInsertion('Cables');
+
+
 SET FOREIGN_KEY_CHECKS=1;
 
 SHOW TABLES;

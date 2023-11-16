@@ -5,10 +5,10 @@ BEGIN
 
 UPDATE BaseEOLItems
    SET deleted = TRUE
- WHERE catalogId = catalogIdIn, dateDiscontinued = dateDiscontinuedIn;
+ WHERE catalogId = catalogIdIn AND dateDiscontinued = dateDiscontinuedIn;
 
 
 END;
 //
 
-DELIMTER ;
+DELIMITER ;

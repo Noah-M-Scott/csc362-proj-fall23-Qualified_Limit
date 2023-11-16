@@ -11,4 +11,4 @@ UPDATE BaseWarranties
 END;
 //
 
-DELIMTER ;
+DELIMITER ;

@@ -106,7 +106,6 @@
         $makestmt = $conn->prepare(file_get_contents('../sql_scripts/ONE_LINE_SCRIPT/SCRIPT_accountDelete.sql'));
         $makestmt->bind_param('i', $_SESSION['accountId']);
 
-        echo $_SESSION['accountId'];
 
         if(!$makestmt->execute()){                          //execute prprd stmt
             echo $conn->error;                              //err on fail
@@ -157,7 +156,7 @@ if(isset($_POST['wannaLog'])){
         echo "<p>Not Logged In...</p>";
     }
     echo "<p>Account</p>";
-    echo "<p><input type=\"submit\" name=\"wannaLog\" value=\"Log In/Out\" method=POST/></p>";
+    echo "<p><input type=\"submit\" name=\"wannaLog\" value=\"Manage Account\" method=POST/></p>";
     echo "<p><input type=\"submit\" name=\"wannaMake\" value=\"Make Account\" method=POST/></p>";
 }
 ?>

@@ -5,7 +5,7 @@ BEGIN
 
 UPDATE BaseReturns
    SET transactionId = transactionIdIn, 
-       dateReturned = dateReturnedIn, 
+       dateReturned = dateReturnedIn 
 WHERE transactionId = transactionIdIn;
 
 END;

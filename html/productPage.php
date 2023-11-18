@@ -54,7 +54,7 @@
     $select_result = $select_stmt->get_result();
     $result_body = $select_result->fetch_all();
     
-    if (sizeof($eol_result_body) == 0 ){
+    if (sizeof($eol_result_body) != 0 ){
         ?>
         <h2>Please note that this item has been discontinued, and is no longer available for purchase.</h2>
         <?php
@@ -68,3 +68,12 @@
 <h2>Quantity in Stock: <?php echo($result_body[0][5]); ?></h2>
 
 
+<?php
+    if( array_key_exists($_SESSION['username'])) {
+        echo("You are logged in!");
+    }
+    else {
+        echo("you are not logged in!");
+    }
+
+?>

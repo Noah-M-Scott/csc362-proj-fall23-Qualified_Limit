@@ -42,7 +42,7 @@
         <h1>Welcome to Upwards Outfitters, [TOWN]'s premier provider of high-quality climbing and camping equipment since [YEAR]!</h1>
         <b>Want to go to an item page for testing purposes? Then click <a href="productPage.php?product=<?php echo $productCode; ?>"> HERE</a>.</b>
         <p>To make an account with us, or sign in to your existing account, Click <a href="loginPage.php">HERE</a> to log in!</p>
-        <p>Know what you want? Click <a href ="searchPage.php">HERE</a> for our search engine!</p>
+        <p>Know what you want? Click <a href ="search.php">HERE</a> for our search engine!</p>
         <p>Want more information? Click <a href="aboutPage.php">HERE</a> for our About!</p>
         <p>Just browsing? See below for a list of our product categories! We're always expanding our stock, so be sure to check back often!</p>
     </body>

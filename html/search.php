@@ -50,31 +50,18 @@
 
 <?php
     if(isset($_POST['searchCatagory'])){
-        $dblist = "SELECT catalogId, categoryName FROM catalog INNER JOIN categories ON (category = categoryName);";
+        $dblist = "SELECT catalogId, itemName, categoryName FROM catalog INNER JOIN categories ON (category = categoryName);";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
         for($i = 0; $i < $result->num_rows; $i++){
-            if($resdata[$i][1] === $_POST['searchCatagory'])
-                echo "";
-        }        
+            if($resdata[$i][2] === $_POST['searchCatagory'])
+                echo "<button name='foo' name='product' value=" . $i . ">" . $resdata[$i][1] . "</button>";
+        }
         
     }
 ?>
 
-<?php
-    if(isset($_POST['searchName'])){
-        $dblist = "SELECT catalogId, itemName FROM catalog;";
-        $result = $conn->query($dblist);
-        $resdata = $result->fetch_all();
-
-        for($i = 0; $i < $result->num_rows; $i++){
-            if($resdata[$i][1] === $_POST['searchName'])
-                echo "";
-        }
-
-    }
-?>
 
 </p>
 </form>

@@ -17,11 +17,13 @@ SOURCE FinancialData.sql;
 SOURCE returns.sql;
 SOURCE warranties.sql;
 
-
 CALL categoryInsertion('Rope');
 CALL categoryInsertion('Shoes');
 CALL categoryInsertion('Cables');
 
+CALL catalogInsertion('Nikes',        'Shoes', 100.0, '2011-02-03 04:32:11', 5, 'NIKE');
+CALL catalogInsertion('Not Nikes',    'Shoes', 100.0, '2011-02-03 04:32:11', 5, 'NIKE');
+CALL catalogInsertion('Silly String', 'Rope',  200.0, '2011-02-03 04:32:11', 5, 'ROPE CORP');
 
 SET FOREIGN_KEY_CHECKS=1;
 

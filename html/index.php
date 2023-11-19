@@ -8,7 +8,7 @@
 <html>
 
 <?php
-    $config = parse_ini_file('/home/upfrog42/CSC362_Rout/html/mysql.ini');
+    $config = parse_ini_file('/home/noahm/mysql.ini');
     $dbhost = $config['mysqli.default_host'];
     $dbuser = $config['mysqli.default_user'];
     $dbpass = $config['mysqli.default_pw'];

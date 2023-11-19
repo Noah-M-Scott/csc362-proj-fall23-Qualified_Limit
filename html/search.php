@@ -55,8 +55,22 @@
         $resdata = $result->fetch_all();
 
         for($i = 0; $i < $result->num_rows; $i++){
-            if($resdata[$i][2] === $_POST['searchCatagory'])
-                echo "<button name='foo' name='product' value=" . $i . ">" . $resdata[$i][1] . "</button>";
+            if($resdata[$i][2] === $_POST['search'])
+                echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . "</button></p>";
+        }
+        
+    }
+?>
+
+<?php
+    if(isset($_POST['searchName'])){
+        $dblist = "SELECT catalogId, itemName FROM catalog;";
+        $result = $conn->query($dblist);
+        $resdata = $result->fetch_all();
+
+        for($i = 0; $i < $result->num_rows; $i++){
+            if($resdata[$i][1] === $_POST['search'])
+                echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . "</button></p>";
         }
         
     }
@@ -65,14 +79,5 @@
 
 </p>
 </form>
-
-
-<?php
-
-
-
-?>
-
-
 
 </html>

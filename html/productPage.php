@@ -8,7 +8,7 @@
 <html>
 
 <?php
-    $config = parse_ini_file('/home/upfrog42/CSC362_Rout/html/mysql.ini');
+    $config = parse_ini_file('/home/noahm/mysql.ini');
     $dbhost = $config['mysqli.default_host'];
     $dbuser = $config['mysqli.default_user'];
     $dbpass = $config['mysqli.default_pw'];
@@ -29,12 +29,12 @@
 ?>
 
 <?php           
-    $test_val = $_GET['product'];
+    $test_val = $_POST['product'];
 
     //EOL check
     $eol_check_stmt = $conn->prepare('SELECT * FROM eolitems WHERE catalogId = ?;');
     $eol_check_stmt->bind_param("i", $id);
-    $id = $_GET['product'];
+    $id = $_POST['product'];
 
     
               
@@ -46,7 +46,7 @@
     //fetch item
     $select_stmt = $conn->prepare('SELECT * FROM catalog WHERE catalogId = ?;');
     $select_stmt->bind_param("i", $id);
-    $id = $_GET['product'];
+    $id = $_POST['product'];
 
     
               
@@ -69,7 +69,9 @@
 
 
 <?php
-    if( array_key_exists($_SESSION['username'])) {
+    session_start();
+
+    if( array_key_exists('username', $_SESSION)) {
         echo("You are logged in!");
     }
     else {

@@ -29,12 +29,18 @@
 ?>
 
 <?php           
-    $test_val = $_POST['product'];
+    if (isset($_POST['product'])) {
+        $product_code = $_POST['product'];
+    }
+    else {
+        $product_code = 1;
+    }
+    
 
     //EOL check
     $eol_check_stmt = $conn->prepare('SELECT * FROM eolitems WHERE catalogId = ?;');
     $eol_check_stmt->bind_param("i", $id);
-    $id = $_POST['product'];
+    $id = $product_code;
 
     
               
@@ -46,7 +52,7 @@
     //fetch item
     $select_stmt = $conn->prepare('SELECT * FROM catalog WHERE catalogId = ?;');
     $select_stmt->bind_param("i", $id);
-    $id = $_POST['product'];
+    $id = $product_code;
 
     
               

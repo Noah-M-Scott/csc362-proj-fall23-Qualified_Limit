@@ -38,34 +38,37 @@
 <p> SHOPPING CART </p>
 
 <?php
-    if(isset($_SESSION['tocart'])){
-        if(isset($_SESSION['cart'])){
+    session_start();
+    if(isset($_SESSION['username'])){
+    if(isset($_SESSION['cart'])){
+        if(isset($_SESSION['tocart']))
             array_push($_SESSION['cart'], $_SESSION['tocart']);
 
-            $dblist = "SELECT catalogId, itemName FROM catalog;";
-            $result = $conn->query($dblist);
-            $resdata = $result->fetch_all();
+        $dblist = "SELECT catalogId, itemName FROM catalog;";
+        $result = $conn->query($dblist);
+        $resdata = $result->fetch_all();
+        for($i = 0; $i < $result->num_rows; $i++){
+            for($j = 0; $j < count($_SESSION['cart']); $j++)
+                if($resdata[$i][0] === $_SESSION['cart'][$j])
+                       echo "<p>" . $resdata[$i][0] . " : " . $resdata[$i][1] . "</p>";
+        }
 
-            for($i = 0; $i < $result->num_rows; $i++){
-                for($j = 0; $j < count($_SESSION['cart']); $j++)
-                    if($resdata[$i][1] === $_SESSION['cart'][$j])
-                        echo "<p>" . $resdata[$i][0] . " : " . $resdata[$i][1] . "</p>";
-            }
-
-        }else{
+    }else{
+        if(isset($_SESSION['tocart']))
             $_SESSION['cart'] = array($_SESSION['tocart']);
 
-            $dblist = "SELECT catalogId, itemName FROM catalog;";
-            $result = $conn->query($dblist);
-            $resdata = $result->fetch_all();
+        $dblist = "SELECT catalogId, itemName FROM catalog;";
+        $result = $conn->query($dblist);
+        $resdata = $result->fetch_all();
 
-            for($i = 0; $i < $result->num_rows; $i++){
-                for($j = 0; $j < count($_SESSION['cart']); $j++)
-                    if($resdata[$i][1] === $_SESSION['cart'][$j])
+        for($i = 0; $i < $result->num_rows; $i++){
+            for($j = 0; $j < count($_SESSION['cart']); $j++)
+                    if($resdata[$i][0] === $_SESSION['cart'][$j])
                         echo "<p>" . $resdata[$i][0] . " : " . $resdata[$i][1] . "</p>";
-            }
         }
     }
+    }
+    
 ?>
 
 

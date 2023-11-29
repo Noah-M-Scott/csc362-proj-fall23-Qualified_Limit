@@ -78,7 +78,13 @@
     session_start();
 
     if( array_key_exists('username', $_SESSION)) {
+        $_SESSION['tocart'] = $id;
         echo("You are logged in!");
+        echo "<form action='shoppingCart.php' method=POST>                  <!-- start of form -->
+        <p>
+            <input type='submit' name='searchCatagory' value='Add to cart' method=POST/>
+        </p>
+        </form>";
     }
     else {
         echo("you are not logged in!");

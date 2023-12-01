@@ -37,12 +37,23 @@
 
 <p> SHOPPING CART </p>
 
+<form action="shoppingCart.php" method=POST>
 <?php
     session_start();
     if(isset($_SESSION['username'])){
     if(isset($_SESSION['cart'])){
-        if(isset($_SESSION['tocart']))
+
+        
+        for($i = 0; $i < count($_SESSION['cart']); $i++)
+            if(isset($_SESSION[$i . 'dlt'])){
+                array_splice($_SESSION['cart'], $i, 1);
+            }
+        
+
+        if(isset($_SESSION['tocart'])){
             array_push($_SESSION['cart'], $_SESSION['tocart']);
+            unset($_SESSION['tocart']);
+        }
 
         $dblist = "SELECT catalogId, itemName FROM catalog;";
         $result = $conn->query($dblist);
@@ -50,26 +61,42 @@
         for($i = 0; $i < $result->num_rows; $i++){
             for($j = 0; $j < count($_SESSION['cart']); $j++)
                 if($resdata[$i][0] === $_SESSION['cart'][$j])
-                       echo "<p>" . $resdata[$i][0] . " : " . $resdata[$i][1] . "</p>";
+                echo "<p>" . $resdata[$i][1] . " <input type='submit' name='" . $j . "dlt' value='remove from cart' method=POST/></p>";
         }
 
     }else{
-        if(isset($_SESSION['tocart']))
+        if(isset($_SESSION['tocart'])){
             $_SESSION['cart'] = array($_SESSION['tocart']);
+            unset($_SESSION['tocart']);
+        }
 
         $dblist = "SELECT catalogId, itemName FROM catalog;";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
+        
         for($i = 0; $i < $result->num_rows; $i++){
             for($j = 0; $j < count($_SESSION['cart']); $j++)
                     if($resdata[$i][0] === $_SESSION['cart'][$j])
-                        echo "<p>" . $resdata[$i][0] . " : " . $resdata[$i][1] . "</p>";
+                        echo "<p>" . $resdata[$i][1] . " <input type='submit' name='" . $j . "dlt' value='remove from cart' method=POST/></p>";
         }
     }
     }
     
 ?>
+</form>
 
+
+<form action="checkout.php" method=POST>
+<?php
+    echo "<p><input type=\"submit\" name=\"gotoCheckout\" value=\"Go to Checkout\" method=POST/></p>";
+?>
+</form>
+
+<form action="index.php" method=POST>
+<?php
+    echo "<p><input type=\"submit\" name=\"returnHome\" value=\"Return to Homepage\" method=POST/></p>";
+?>
+</form>
 
 </html>

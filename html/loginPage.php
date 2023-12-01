@@ -162,5 +162,21 @@ if(isset($_POST['wannaLog'])){
 ?>
 </form>
 
+<form action="shoppingCart.php" method=POST>
+<?php
+    if(!isset($_POST['wannaLog']))
+    if(isset($_SESSION['username']))
+        echo "<p><input type=\"submit\" name=\"gotoCart\" value=\"Go to Cart\" method=POST/></p>";
+?>
+</form>
+
+<form action="index.php" method=POST>
+<?php
+    if(!isset($_POST['wannaLog'])){
+        echo "<p><input type=\"submit\" name=\"returnHome\" value=\"Return to Homepage\" method=POST/></p>";
+    }
+?>
+</form>
+
 
 </html>

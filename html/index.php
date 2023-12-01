@@ -38,10 +38,25 @@
         <title>Upwards Outfitters</title>
     </head>
 
+    <form action="shoppingCart.php" method=POST>
+    <?php
+    echo "<p>";
+    session_start();
+    if( array_key_exists('username', $_SESSION))
+    if(isset($_SESSION['username']))
+        echo "<input type=\"submit\" name=\"gotoCart\" value=\"Go to Cart\" method=POST/>";
+    ?>
+    </form>
+
+    <form action="loginPage.php" method=POST>
+    <?php
+    echo " <input type=\"submit\" name=\"gotoAccount\" value=\"Account\" method=POST/>";
+    echo "</p>";
+    ?>
+    </form>
+
     <body>
         <h1>Welcome to Upwards Outfitters, [TOWN]'s premier provider of high-quality climbing and camping equipment since [YEAR]!</h1>
-        <b>Want to go to an item page for testing purposes? Then click <a href="productPage.php?product=<?php echo $productCode; ?>"> HERE</a>.</b>
-        <p>To make an account with us, or sign in to your existing account, Click <a href="loginPage.php">HERE</a> to log in!</p>
         <p>Know what you want? Click <a href ="search.php">HERE</a> for our search engine!</p>
         <p>Want more information? Click <a href="aboutPage.php">HERE</a> for our About!</p>
         <p>Just browsing? See below for a list of our product categories! We're always expanding our stock, so be sure to check back often!</p>

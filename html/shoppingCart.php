@@ -122,6 +122,7 @@
 
 <form action="checkout.php" method=POST>
 <?php
+    if($total != 0) //awful fix
     echo "<p><input type=\"submit\" name=\"gotoCheckout\" value=\"Go to Checkout\" method=POST/></p>";
 ?>
 </form>

@@ -1,8 +1,10 @@
 <?php
+    /*
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    */
 ?>
 
 <html>
@@ -176,6 +178,14 @@ if(isset($_POST['wannaLog'])){
     if(!isset($_POST['wannaLog']))
     if(isset($_SESSION['username']))
         echo "<p><input type=\"submit\" name=\"gotoWarranty\" value=\"Claim a Warranty\" method=POST/></p>";
+?>
+</form>
+
+<form action="claimReturn.php" method=POST>
+<?php
+    if(!isset($_POST['wannaLog']))
+    if(isset($_SESSION['username']))
+        echo "<p><input type=\"submit\" name=\"gotoReturn\" value=\"File a Return\" method=POST/></p>";
 ?>
 </form>
 

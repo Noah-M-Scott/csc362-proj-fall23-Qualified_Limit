@@ -1,8 +1,10 @@
 <?php
+    /*
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    */
 ?>
 
 <html>
@@ -29,8 +31,10 @@
 ?>
 
 <html lang="en">
-
+    <p>CHECKOUT:</p>
+    <p>SHOPPING CART</p>
 <?php
+    $transactionId = random_int(4, 10);
     session_start();
     if(isset($_SESSION['cart'])){
     $dblist = "SELECT catalogId, itemName, currentPrice FROM catalog;";
@@ -40,8 +44,9 @@
     for($i = 0; $i < $result->num_rows; $i++){
         for($j = 0; $j < count($_SESSION['cart']); $j++)
                 if($resdata[$i][0] === $_SESSION['cart'][$j]){
-                    echo "<p>" . $resdata[$i][1] . " : $" . $resdata[$i][2] . " <input type='submit' name='" . $j . "dlt' value='add waranty' method=POST/></p>";
+                    echo "<p>" . $resdata[$i][1] . " : $" . $resdata[$i][2] . " | " . "Item Code ( " . $transactionId . " ) " .  " <input type='submit' name='" . $j . "dlt' value='add waranty' method=POST/>" . " <input type='submit' name='" . $j . "r' value='pay with exchange' method=POST/></p>";
                     $total += $resdata[$i][2];
+                    $transactionId += 1;
                 }
     }
     echo "<p> TOTAL: $" . $total . "</p>";
@@ -64,8 +69,6 @@
         <p><input type="text" name='cvv2' value='CVV2'/></p>
         <p><input type="text" name='cardname' value='Card Holder name'/></p>
         <p><input type="text" name='mailaddr' value='Mailing Address'/></p>
-        <p><input type="text" name='exchId' value='<OPTIONAL> Exchange Transaction Id'/></p>
-        <p><input type="text" name='exchLabel' value='<OPTIONAL> Exchange Return Shipping Label'/></p>
         <p><input type="text" name='shipaddr' value='Delivery Address'/> SHIPPED WITH UPS, TRACKING ID : <?php echo $shippingCode; ?> </p>
         <p><input type="submit" name="gotoFinalize" value="CheckOut" method=POST/></p>
     </form>

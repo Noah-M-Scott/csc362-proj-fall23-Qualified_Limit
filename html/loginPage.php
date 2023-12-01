@@ -157,6 +157,7 @@ if(isset($_POST['wannaLog'])){
     }
     echo "<p>Account</p>";
     echo "<p><input type=\"submit\" name=\"wannaLog\" value=\"Manage Account\" method=POST/></p>";
+    if(!isset($_SESSION['username']))
     echo "<p><input type=\"submit\" name=\"wannaMake\" value=\"Make Account\" method=POST/></p>";
 }
 ?>
@@ -167,6 +168,14 @@ if(isset($_POST['wannaLog'])){
     if(!isset($_POST['wannaLog']))
     if(isset($_SESSION['username']))
         echo "<p><input type=\"submit\" name=\"gotoCart\" value=\"Go to Cart\" method=POST/></p>";
+?>
+</form>
+
+<form action="claimWarranty.php" method=POST>
+<?php
+    if(!isset($_POST['wannaLog']))
+    if(isset($_SESSION['username']))
+        echo "<p><input type=\"submit\" name=\"gotoWarranty\" value=\"Claim a Warranty\" method=POST/></p>";
 ?>
 </form>
 

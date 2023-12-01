@@ -64,6 +64,8 @@
         <p><input type="text" name='cvv2' value='CVV2'/></p>
         <p><input type="text" name='cardname' value='Card Holder name'/></p>
         <p><input type="text" name='mailaddr' value='Mailing Address'/></p>
+        <p><input type="text" name='exchId' value='<OPTIONAL> Exchange Transaction Id'/></p>
+        <p><input type="text" name='exchLabel' value='<OPTIONAL> Exchange Return Shipping Label'/></p>
         <p><input type="text" name='shipaddr' value='Delivery Address'/> SHIPPED WITH UPS, TRACKING ID : <?php echo $shippingCode; ?> </p>
         <p><input type="submit" name="gotoFinalize" value="CheckOut" method=POST/></p>
     </form>

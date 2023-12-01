@@ -48,7 +48,13 @@ $conn->close();
         <p>We are located at [ADDRESS]</p>
         <p>We were founded by [PERSON] and [PERSON] in [YEAR], and ever since have been driven to excellence in customer service.</p>        
         <p>Our hours are: XXXXXX</p>
-        <p>We currently have <?php echo $quantity_actual[0][0] ?> items in our catalog. - but it's a dynamic zero, so that will change!</p>
-
+        <p>We currently have <?php echo $quantity_actual[0][0] ?> items in our catalog.
     </body>
+
+
+    <form action="index.php" method=POST>
+<?php
+    echo "<p><input type=\"submit\" name=\"returnHome\" value=\"Return to Homepage\" method=POST/></p>";
+?>
+</form>
 </html>

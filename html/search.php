@@ -26,6 +26,9 @@
     }
 ?>
 
+<?php 
+    $edited = FALSE; //variable that tracks if we need to redirect or not
+?>
 
 <form action="search.php" method=POST>                  <!-- start of form -->
 <p>
@@ -76,6 +79,12 @@
     }
 ?>
 
+<?php 
+    if($edited == TRUE){                                            //if we need to reload the page...
+        header("Location: {$_SERVER['REQUEST_URI']}", true, 303);   //...redirect design pattern
+        exit();
+    }
+?>
 
 </p>
 </form>

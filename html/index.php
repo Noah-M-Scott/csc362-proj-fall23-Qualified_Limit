@@ -55,9 +55,14 @@
     ?>
     </form>
 
+    <form action="search.php" method=POST>
+<?php
+    echo "<p><input type=\"submit\" name=\"gotoSearch\" value=\"Go to Search\" method=POST/></p>";
+?>
+</form>
+
     <body>
         <h1>Welcome to Upwards Outfitters, [TOWN]'s premier provider of high-quality climbing and camping equipment since [YEAR]!</h1>
-        <p>Know what you want? Click <a href ="search.php">HERE</a> for our search engine!</p>
         <p>Want more information? Click <a href="aboutPage.php">HERE</a> for our About!</p>
         <p>Just browsing? See below for a list of our product categories! We're always expanding our stock, so be sure to check back often!</p>
     </body>

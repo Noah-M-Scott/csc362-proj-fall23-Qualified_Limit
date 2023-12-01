@@ -1,9 +1,13 @@
+
 <?php
+   /*
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    */
 ?>
+
 
 <html>
 
@@ -13,6 +17,8 @@
     $dbuser = $config['mysqli.default_user'];
     $dbpass = $config['mysqli.default_pw'];
 ?>
+
+
 
 <?php
 
@@ -35,6 +41,10 @@
     $resdata = $result->fetch_all();
 ?>
 
+<?php 
+    $edited = FALSE; //variable that tracks if we need to redirect or not
+?>
+
 <p> SHOPPING CART </p>
 
 <form action="shoppingCart.php" method=POST>
@@ -42,54 +52,83 @@
     session_start();
     if(isset($_SESSION['username'])){
     if(isset($_SESSION['cart'])){
-
         
-        for($i = 0; $i < count($_SESSION['cart']); $i++)
-            if(isset($_SESSION[$i . 'dlt'])){
+        
+        for($i = 0; $i < count($_SESSION['cart']); $i++){
+            if(isset($_POST["d" . $i])){
                 array_splice($_SESSION['cart'], $i, 1);
+                $edited = TRUE;
             }
-        
+        }
 
         if(isset($_SESSION['tocart'])){
             array_push($_SESSION['cart'], $_SESSION['tocart']);
             unset($_SESSION['tocart']);
+            $edited = TRUE;
         }
 
-        $dblist = "SELECT catalogId, itemName FROM catalog;";
+        $dblist = "SELECT catalogId, itemName, currentPrice FROM catalog;";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
+        $total = 0;
         for($i = 0; $i < $result->num_rows; $i++){
             for($j = 0; $j < count($_SESSION['cart']); $j++)
-                if($resdata[$i][0] === $_SESSION['cart'][$j])
-                echo "<p>" . $resdata[$i][1] . " <input type='submit' name='" . $j . "dlt' value='remove from cart' method=POST/></p>";
+                    if($resdata[$i][0] === $_SESSION['cart'][$j]){
+                        echo "<p>" . $resdata[$i][1] . " : $" . $resdata[$i][2] . " <input type='submit' name='" . "d" . $j . "' value='remove from cart' method=POST/></p>";
+                        $total += $resdata[$i][2];
+                    }
         }
+        echo "<p> TOTAL: $" . $total . "</p>";
 
     }else{
         if(isset($_SESSION['tocart'])){
             $_SESSION['cart'] = array($_SESSION['tocart']);
             unset($_SESSION['tocart']);
+            $edited = TRUE;
         }
 
-        $dblist = "SELECT catalogId, itemName FROM catalog;";
+        $dblist = "SELECT catalogId, itemName, currentPrice FROM catalog;";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
-        
+        $total = 0;
         for($i = 0; $i < $result->num_rows; $i++){
             for($j = 0; $j < count($_SESSION['cart']); $j++)
-                    if($resdata[$i][0] === $_SESSION['cart'][$j])
-                        echo "<p>" . $resdata[$i][1] . " <input type='submit' name='" . $j . "dlt' value='remove from cart' method=POST/></p>";
+                    if($resdata[$i][0] === $_SESSION['cart'][$j]){
+                        echo "<p>" . $resdata[$i][1] . " : $" . $resdata[$i][2] . " <input type='submit' name='" . "d" . $j . "' value='remove from cart' method=POST/></p>";
+                        $total += $resdata[$i][2];
+                    }
         }
+        echo "<p> TOTAL: $" . $total . "</p>";
     }
     }
     
 ?>
 </form>
 
+<?php 
+    if($edited == TRUE){                                            //if we need to reload the page...
+        header("Location: {$_SERVER['REQUEST_URI']}", true, 303);   //...redirect design pattern
+        exit();
+    }
+?>
+
+
+<form action="search.php" method=POST>
+<?php
+    echo "<p><input type=\"submit\" name=\"gotoSearch\" value=\"Go back to Search\" method=POST/></p>";
+?>
+</form>
 
 <form action="checkout.php" method=POST>
 <?php
     echo "<p><input type=\"submit\" name=\"gotoCheckout\" value=\"Go to Checkout\" method=POST/></p>";
+?>
+</form>
+
+<form action="loginPage.php" method=POST>
+<?php
+    echo " <input type=\"submit\" name=\"gotoAccount\" value=\"Account\" method=POST/>";
 ?>
 </form>
 

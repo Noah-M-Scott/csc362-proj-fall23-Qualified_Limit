@@ -1,7 +1,7 @@
 DELIMITER //
 
 CREATE PROCEDURE exchangeInsert(
-    exchange_amountOwedAtExchangeIN DECIMAL(8,2),
+    exchange_amountOwedAtExchangeIN DECIMAL(6,2),
     transaction_transactionIdIN INT,
     exchange_idOfExchangedTransactionIN INT,
     exchange_returnTrackIdIN VARCHAR(128)

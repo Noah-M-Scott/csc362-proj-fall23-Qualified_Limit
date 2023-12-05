@@ -1,11 +1,9 @@
 
 <?php
-   /*
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    */
 ?>
 
 
@@ -36,7 +34,7 @@
     $dblist = "USE upward;";                        //set the db
     $result = $conn->query($dblist);                //
     
-    $dblist = "SELECT * FROM accounts";
+    $dblist = "SELECT * FROM Accounts";
     $result = $conn->query($dblist);
     $resdata = $result->fetch_all();
 ?>
@@ -67,7 +65,7 @@
             $edited = TRUE;
         }
 
-        $dblist = "SELECT catalogId, itemName, currentPrice FROM catalog;";
+        $dblist = "SELECT catalog_catalogId, catalog_itemName, catalog_currentPrice FROM Catalog;";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
         $total = 0;
@@ -87,7 +85,7 @@
             $edited = TRUE;
         }
 
-        $dblist = "SELECT catalogId, itemName, currentPrice FROM catalog;";
+        $dblist = "SELECT catalog_catalogId, catalog_itemName, catalog_currentPrice FROM Catalog;";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 

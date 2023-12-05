@@ -1,18 +1,18 @@
 DELIMITER //
 
-CREATE PROCEDURE catalogUpdate(catalogIdIn INT, itemNameIn VARCHAR(150), categoryIn VARCHAR(100), 
-                                    currentPriceIn DECIMAL(8,2), dateFirstAvailableIn DATETIME, 
-                                    numberInStockIn INT, manufacturerIn VARCHAR(80))
+CREATE PROCEDURE catalogUpdate(catalogIdIn INT, itemNameIn VARCHAR(128), categoryIn VARCHAR(128), 
+                                    currentPriceIn DECIMAL(6,2), dateFirstAvailableIn DATETIME, 
+                                    numberInStockIn INT, manufacturerIn VARCHAR(128))
 BEGIN
 
 UPDATE BaseCatalog
-   SET itemName = itemNameIn,
-       category= categoryIn,
-       currentPrice = currentPriceIn,
-       dateFirstAvailable =dateFirstAvailableIn,
-       numberInStock = numberInStockIn,
-       manufacturer = manufacturerIn
- WHERE catalogId = catalogIdIn;
+   SET catalog_itemName = itemNameIn,
+       catalog_category= categoryIn,
+       catalog_currentPrice = currentPriceIn,
+       catalog_dateFirstAvailable =dateFirstAvailableIn,
+       catalog_numberInStock = numberInStockIn,
+       catalog_manufacturer = manufacturerIn
+ WHERE catalog_catalogId = catalogIdIn;
 
 END;
 //

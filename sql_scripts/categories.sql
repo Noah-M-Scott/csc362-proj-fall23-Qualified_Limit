@@ -1,14 +1,14 @@
 USE upward;
 
 CREATE TABLE BaseCategories (
-    categoryId              INT unsigned NOT NULL AUTO_INCREMENT UNIQUE,
-    categoryName            VARCHAR(32) NOT NULL,
+    catagory_categoryId              INT unsigned NOT NULL AUTO_INCREMENT UNIQUE,
+    catagory_categoryName            VARCHAR(32) NOT NULL,
     deleted                 BOOLEAN DEFAULT FALSE
 );
 
-CREATE VIEW categories AS
-SELECT categoryId,
-       categoryName
+CREATE VIEW Categories AS
+SELECT catagory_categoryId,
+       catagory_categoryName
   FROM BaseCategories;
 
 SOURCE Categories_insert.sql

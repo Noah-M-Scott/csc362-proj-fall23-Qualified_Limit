@@ -1,10 +1,8 @@
 <?php
-    /*
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    */
 ?>
 
 <html>
@@ -36,7 +34,7 @@
     $dblist = "USE upward;";                        //set the db
     $result = $conn->query($dblist);                //
     
-    $dblist = "SELECT * FROM accounts";
+    $dblist = "SELECT * FROM Accounts";
     $result = $conn->query($dblist);
     $resdata = $result->fetch_all();
 ?>
@@ -77,7 +75,7 @@
 
 <?php
     if(isset($_POST['makeAccount'])){
-        $dblist = "SELECT * FROM accounts";
+        $dblist = "SELECT * FROM Accounts";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
@@ -101,7 +99,7 @@
 
 <?php
     if(isset($_POST['deleteAccount'])){
-        $dblist = "SELECT userName FROM accounts";
+        $dblist = "SELECT account_userName FROM Accounts";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 

@@ -4,7 +4,7 @@ CREATE PROCEDURE accountDelete(accountIdIn INT)
 BEGIN
 
 SET FOREIGN_KEY_CHECKS=0;
-DELETE FROM accounts WHERE accountId = accountIdIn;
+DELETE FROM Accounts WHERE account_accountId = accountIdIn;
 SET FOREIGN_KEY_CHECKS=1;
 
 END;

@@ -4,10 +4,10 @@ CREATE PROCEDURE discountInsertion(catalogIdIn INT, priceOffPercentIn DECIMAL(3,
 BEGIN
 
 INSERT INTO BaseDiscounts (
-       catalogId, 
-       priceOffPercent, 
-       startDate,
-       endDate)
+       catalog_catalogId, 
+       discount_priceOffPercent, 
+       discount_startDate,
+       discount_endDate)
 VALUES (catalogIdIn,
        priceOffPercentIn,
        startDateIn,

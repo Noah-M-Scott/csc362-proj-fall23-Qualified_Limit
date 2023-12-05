@@ -4,8 +4,8 @@ CREATE PROCEDURE descriptionsInsertion(catalogIdIn INT, textIn VARCHAR(5000))
 BEGIN
 
 INSERT INTO BaseDescriptions (
-       catalogId, 
-       text)
+       description_Id, 
+       description_text)
 VALUES (catalogIdIn,
        textIn);
 

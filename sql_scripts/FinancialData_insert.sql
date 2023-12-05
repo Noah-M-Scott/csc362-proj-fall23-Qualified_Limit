@@ -2,8 +2,8 @@ DELIMITER //
 
 CREATE PROCEDURE financialDataInsert(
        transaction_transactionIdIN INT,
-       financialDatum_amountOwedAtPaymentIN DECIMAL(8,2),
-       financialDatum_amountPayedAtPaymentIN DECIMAL(8,2),
+       financialDatum_amountOwedAtPaymentIN DECIMAL(6,2),
+       financialDatum_amountPayedAtPaymentIN DECIMAL(6,2),
        financialDatum_last4digitsOfCardIN CHAR(4),
        financialDatum_billingAddressIN VARCHAR(128),
        financialDatum_datePayedIN DATETIME

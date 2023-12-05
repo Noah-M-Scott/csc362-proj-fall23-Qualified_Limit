@@ -1,12 +1,12 @@
 DELIMITER //
 
-CREATE PROCEDURE accountInsertion(accountEmailIn VARCHAR(80), phoneIn CHAR(10), userNameIn VARCHAR(30), userPassWordIn VARCHAR(30))
+CREATE PROCEDURE accountInsertion(accountEmailIn VARCHAR(128), phoneIn CHAR(10), userNameIn VARCHAR(32), userPassWordIn VARCHAR(32))
 BEGIN
 
-INSERT INTO accounts (
-       accountEmail, 
-       accountPhone, 
-       userName, userPassWord)
+INSERT INTO Accounts (
+       account_accountEmail, 
+       account_phone, 
+       account_userName, account_userPassWord)
 VALUES (accountEmailIn,
        phoneIn,
        userNameIn, userPassWordIn);

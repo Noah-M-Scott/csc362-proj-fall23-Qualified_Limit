@@ -4,8 +4,8 @@ CREATE PROCEDURE shippingDataInsert(
        transaction_transactionIdIN INT,
        shippingDatum_trackingIdIN VARCHAR(128),
        shippingDatum_destinationAddressIN VARCHAR(256),
-       shippingDatum_shippingCostIN DECIMAL(8,2),
-       shippingDatum_shippingServiceIN DECIMAL(8,2),
+       shippingDatum_shippingCostIN DECIMAL(6,2),
+       shippingDatum_shippingServiceIN DECIMAL(6,2),
        shippingDatum_itemArrivedBoolIN BOOLEAN
     )
 BEGIN

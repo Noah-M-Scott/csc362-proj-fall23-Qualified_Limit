@@ -1,5 +1,5 @@
 CREATE TABLE BaseExchanges (
-    exchange_amountOwedAtExchange DECIMAL(8,2),
+    exchange_amountOwedAtExchange DECIMAL(6,2),
 
     transaction_transactionId INT,
     PRIMARY KEY(transaction_transactionId),

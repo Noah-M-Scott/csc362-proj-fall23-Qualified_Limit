@@ -1,10 +1,8 @@
 <?php
-    /*
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    */
 ?>
 
 <html>
@@ -32,7 +30,7 @@
 
 <?php
 
-$quantity_query = 'SELECT COUNT(catalogId) FROM catalog;';
+$quantity_query = 'SELECT COUNT(catalog_catalogId) FROM Catalog;';
 $quantity = $conn->query($quantity_query);
 $quantity_actual = $quantity->fetch_all();
 

@@ -1,18 +1,17 @@
 USE upward;
 
 CREATE TABLE BaseEOLItems (
-    catalogId               INT unsigned NOT NULL UNIQUE,
-    dateDiscontinued        DATE NOT NULL,
-    PRIMARY KEY             (catalogId, dateDiscontinued),
-    FOREIGN KEY             (catalogId) REFERENCES
-                                catalog(catalogId),       
-    deleted                 BOOLEAN DEFAULT FALSE
+    catalog_catalogId               INT unsigned NOT NULL UNIQUE,
+    EOL_dateDiscontinued            DATE NOT NULL,
+    PRIMARY KEY                     (catalog_catalogId, EOL_dateDiscontinued),
+    FOREIGN KEY                     (catalog_catalogId) REFERENCES Catalog(catalog_catalogId),       
+    deleted                         BOOLEAN DEFAULT FALSE
 );
 
 
-CREATE VIEW eolitems AS
-SELECT catalogId,      
-dateDiscontinued
+CREATE VIEW EOLitems AS
+SELECT catalog_catalogId,      
+       EOL_dateDiscontinued
   FROM BaseEOLItems
  WHERE deleted = FALSE;
 

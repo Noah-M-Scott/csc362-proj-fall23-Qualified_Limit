@@ -4,8 +4,8 @@ CREATE PROCEDURE descriptionsUpdate(catalogIdIn INT, textIn VARCHAR(5000))
 BEGIN
 
 UPDATE BaseDescriptions
-   SET text = textIn
-WHERE catalogId = catalogIdIn;
+   SET description_text = textIn
+WHERE description_Id = catalogIdIn;
 
 END;
 //

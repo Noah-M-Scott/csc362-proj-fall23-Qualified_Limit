@@ -1,10 +1,8 @@
 <?php
-    /*
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    */
 ?>
 
 <html>
@@ -45,7 +43,7 @@
     $dblist = "USE upward;";                        //set the db
     $result = $conn->query($dblist);                //
     
-    $dblist = "SELECT * FROM accounts";
+    $dblist = "SELECT * FROM Accounts";
     $result = $conn->query($dblist);
     $resdata = $result->fetch_all();
 ?>
@@ -55,7 +53,7 @@
 
 <?php
     if(isset($_POST['searchCatagory'])){
-        $dblist = "SELECT catalogId, itemName, categoryName FROM catalog INNER JOIN categories ON (category = categoryName);";
+        $dblist = "SELECT catalog_catalogId, catalog_itemName, catagory_categoryName FROM Catalog INNER JOIN Categories ON (catalog_category = catagory_categoryName);";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
@@ -69,7 +67,7 @@
 
 <?php
     if(isset($_POST['searchName'])){
-        $dblist = "SELECT catalogId, itemName FROM catalog;";
+        $dblist = "SELECT catalog_catalogId, catalog_itemName FROM Catalog;";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
@@ -79,6 +77,19 @@
         }
         
     }
+?>
+
+<?php
+    if(!isset($_POST['searchName']) && !isset($_POST['searchCatagory'])){
+        $dblist = "SELECT catalog_catalogId, catalog_itemName FROM Catalog;";
+        $result = $conn->query($dblist);
+        $resdata = $result->fetch_all();
+
+        for($i = 0; $i < $result->num_rows; $i++){
+            echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . "</button></p>";
+        }
+    }
+
 ?>
 
 <?php 

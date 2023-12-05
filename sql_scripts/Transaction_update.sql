@@ -1,6 +1,6 @@
 DELIMITER //
 
-CREATE PROCEDURE transactionUpdate(transactionIdIn INT, finished BOOLEAN, onHold BOOLEAN, payed DECIMAL(8,2))
+CREATE PROCEDURE transactionUpdate(transactionIdIn INT, finished BOOLEAN, onHold BOOLEAN, payed DECIMAL(6,2))
 BEGIN
 
 SELECT transaction_currentAmountPaid

@@ -5,7 +5,7 @@ BEGIN
 
 UPDATE BaseCatalog
    SET deleted = TRUE
- WHERE catalogId = accountIdIn;
+ WHERE catalog_catalogId = catalogIdIn;
 
 
 END;

@@ -5,7 +5,7 @@ BEGIN
 
 UPDATE BaseDescription
    SET deleted = TRUE
- WHERE catalogId = catalogIdIn;
+ WHERE description_Id = catalogIdIn;
 
 
 END;

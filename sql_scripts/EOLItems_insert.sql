@@ -4,8 +4,8 @@ CREATE PROCEDURE eolitemsInsert(catalogIdIn INT, dateDiscontinuedIn DATE)
 BEGIN
 
 INSERT INTO BaseEOLItems (
-       catalogId, 
-       dateDiscontinued)
+       catalog_catalogId, 
+       EOL_dateDiscontinued)
 VALUES (catalogIdIn,
        dateDiscontinuedIn);
 

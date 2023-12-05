@@ -1,21 +1,20 @@
 USE upward;
 
 CREATE TABLE BaseDiscounts (
-    catalogId               INT unsigned NOT NULL UNIQUE,
-    priceOffPercent         DECIMAL(3,0) NOT NULL,
-    startDate               DATE NOT NULL,
-    endDate                 DATE NOT NULL,
-    PRIMARY KEY             (catalogId, startDate, endDate),
-    FOREIGN KEY             (catalogId) REFERENCES
-                                catalog(catalogId),
-    deleted                 BOOLEAN DEFAULT FALSE
+    catalog_catalogId               INT unsigned NOT NULL UNIQUE,
+    discount_priceOffPercent        DECIMAL(3,0) NOT NULL,
+    discount_startDate              DATE NOT NULL,
+    discount_endDate                DATE NOT NULL,
+    PRIMARY KEY                     (catalog_catalogId, discount_startDate, discount_endDate),
+    FOREIGN KEY                     (catalog_catalogId) REFERENCES Catalog(catalog_catalogId),
+    deleted                         BOOLEAN DEFAULT FALSE
 );
 
-CREATE VIEW discounts AS
-SELECT catalogId,      
-priceOffPercent,
-startDate,
-endDate        
+CREATE VIEW Discounts AS
+SELECT  catalog_catalogId,      
+        discount_priceOffPercent,
+        discount_startDate,
+        discount_endDate        
   FROM BaseDiscounts
  WHERE deleted = FALSE;
 

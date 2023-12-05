@@ -21,9 +21,9 @@ CALL categoryInsertion('Rope');
 CALL categoryInsertion('Shoes');
 CALL categoryInsertion('Cables');
 
-CALL catalogInsertion('Nikes',        'Shoes', 100.0, '2011-02-03 04:32:11', 5, 'NIKE');
-CALL catalogInsertion('Not Nikes',    'Shoes', 100.0, '2011-02-03 04:32:11', 5, 'NIKE');
-CALL catalogInsertion('Silly String', 'Rope',  200.0, '2011-02-03 04:32:11', 5, 'ROPE CORP');
+CALL catalogInsertion('Nikes',        'Shoes', 100.0, '2011-02-03 04:32:11', 5, 'NIKE', NULL);
+CALL catalogInsertion('Not Nikes',    'Shoes', 100.0, '2011-02-03 04:32:11', 5, 'NIKE', NULL);
+CALL catalogInsertion('Silly String', 'Rope',  200.0, '2011-02-03 04:32:11', 5, 'ROPE CORP', NULL);
 
 SET FOREIGN_KEY_CHECKS=1;
 

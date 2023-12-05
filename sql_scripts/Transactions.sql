@@ -8,9 +8,9 @@ CREATE TABLE BaseTransactions (
     FOREIGN KEY (account_accountId) REFERENCES accounts (accountId),
 
     transaction_dateMade DATETIME,
-    transaction_originalPriceAtTransaction DECIMAL(8,2),
-    transaction_currentAmountOwed DECIMAL(8,2),
-    transaction_currentAmountPaid DECIMAL(8,2),
+    transaction_originalPriceAtTransaction DECIMAL(6,2),
+    transaction_currentAmountOwed DECIMAL(6,2),
+    transaction_currentAmountPaid DECIMAL(6,2),
     transaction_transactionCompleteBool BOOLEAN,
     transaction_onHold BOOLEAN,
     deleted BOOLEAN DEFAULT FALSE

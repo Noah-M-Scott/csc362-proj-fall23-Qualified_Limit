@@ -5,7 +5,7 @@ BEGIN
 
 UPDATE BaseReturns
    SET deleted = TRUE
- WHERE transactionId = transactionIdIn;
+ WHERE transaction_transactionId = transactionIdIn;
 
 
 END;

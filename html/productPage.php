@@ -1,10 +1,8 @@
 <?php
-    /*
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    */
 ?>
 
 <html>
@@ -40,7 +38,7 @@
     
 
     //EOL check
-    $eol_check_stmt = $conn->prepare('SELECT * FROM eolitems WHERE catalogId = ?;');
+    $eol_check_stmt = $conn->prepare('SELECT * FROM EOLitems WHERE catalog_catalogId = ?;');
     $eol_check_stmt->bind_param("i", $id);
     $id = $product_code;
 
@@ -52,7 +50,7 @@
 
 
     //fetch item
-    $select_stmt = $conn->prepare('SELECT * FROM catalog WHERE catalogId = ?;');
+    $select_stmt = $conn->prepare('SELECT * FROM Catalog WHERE catalog_catalogId = ?;');
     $select_stmt->bind_param("i", $id);
     $id = $product_code;
 

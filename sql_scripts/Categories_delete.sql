@@ -3,9 +3,9 @@ DELIMITER //
 CREATE PROCEDURE categoriesDelete(categoryIdIn INT)
 BEGIN
 
-UPDATE accounts
+UPDATE BaseCatagories
    SET deleted = TRUE
-WHERE categoryId = categoryIdIn;
+WHERE catagory_categoryId = categoryIdIn;
 
 END;
 //

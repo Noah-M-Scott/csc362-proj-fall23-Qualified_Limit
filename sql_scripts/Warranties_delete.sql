@@ -5,7 +5,7 @@ BEGIN
 
 UPDATE BaseWarranties
    SET deleted = TRUE
- WHERE warrantyId = warrantyIdIn;
+ WHERE warranty_warrantyId = warrantyIdIn;
 
 
 END;

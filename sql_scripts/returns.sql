@@ -1,18 +1,17 @@
 use upward;
 
 CREATE TABLE BaseReturns (
-    transactionId           INT unsigned NOT NULL UNIQUE,
-    dateReturned            DATE NOT NULL,
-    PRIMARY KEY             (transactionId),
-    FOREIGN KEY             (transactionId) REFERENCES
-                                Transactions(transaction_transactionId),
-    deleted                 BOOLEAN DEFAULT FALSE
+    transaction_transactionId           INT unsigned NOT NULL UNIQUE,
+    return_dateReturned                 DATE NOT NULL,
+    PRIMARY KEY                         (transaction_transactionId),
+    FOREIGN KEY                         (transaction_transactionId) REFERENCES Transactions(transaction_transactionId),
+    deleted                             BOOLEAN DEFAULT FALSE
 );
 
 
 CREATE VIEW returns AS
-SELECT transactionId,      
-dateReturned     
+SELECT transaction_transactionId,      
+       return_dateReturned     
   FROM BaseReturns
  WHERE deleted = FALSE;
 

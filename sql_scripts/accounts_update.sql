@@ -1,14 +1,14 @@
 DELIMITER //
 
-CREATE PROCEDURE accountsUpdate(accountIdIn INT, accountEmailIn VARCHAR(80), phoneIn CHAR(10), userNameIn VARCHAR(30), userPassWordIn VARCHAR(30))
+CREATE PROCEDURE accountsUpdate(accountIdIn INT, accountEmailIn VARCHAR(128), phoneIn CHAR(10), userNameIn VARCHAR(32), userPassWordIn VARCHAR(32))
 BEGIN
 
-UPDATE accounts
-   SET accountEmail = accountEmailIn, 
-       userName = userNameIn, 
-       phone = phoneIn,
-       userPassWord = userPassWordIn
-WHERE accountId = accountIdIn;
+UPDATE Accounts
+   SET account_accountEmail = accountEmailIn, 
+       account_userName = userNameIn, 
+       account_phone = phoneIn,
+       account_userPassWord = userPassWordIn
+WHERE account_accountId = accountIdIn;
 
 END;
 //

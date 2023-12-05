@@ -6,7 +6,7 @@ CREATE TABLE BaseShippingData (
     FOREIGN KEY (transaction_transactionId) REFERENCES Transactions (transaction_transactionId),
 
     shippingDatum_destinationAddress VARCHAR(256),
-    shippingDatum_shippingCost DECIMAL(8,2),
+    shippingDatum_shippingCost DECIMAL(6,2),
     shippingDatum_shippingService VARCHAR(128),
     shippingDatum_itemArrivedBool BOOLEAN,
     deleted BOOLEAN DEFAULT FALSE

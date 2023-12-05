@@ -4,7 +4,7 @@ CREATE PROCEDURE categoryInsertion(categoryNameIn VARCHAR(32))
 BEGIN
 
 INSERT INTO BaseCategories (
-       categoryName)
+       catagory_categoryName)
 VALUES (categoryNameIn);
 
 

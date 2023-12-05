@@ -4,8 +4,8 @@ CREATE PROCEDURE returnsInsert(transactionIdIn INT, dateReturnedIn DATE)
 BEGIN
 
 INSERT INTO BaseReturns (
-       transactionId, 
-       dateReturned)
+       transaction_transactionId, 
+       return_dateReturned)
 VALUES (transactionIdIn,
        dateReturnedIn);
 

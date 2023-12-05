@@ -1,6 +1,6 @@
 DELIMITER //
 
-CREATE PROCEDURE warrantyClaimsInsert(
+CREATE PROCEDURE warrantyClaimInsert(
        warranty_warrantyIdIN INT, 
        warrantyClaim_claimIN VARCHAR(1024)
     )

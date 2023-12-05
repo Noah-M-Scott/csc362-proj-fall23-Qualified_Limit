@@ -47,7 +47,6 @@ VALUES (catalogIdIn,
        FALSE,
        (@AMOUNT > 0));
 
-
 SELECT transaction_transactionId INTO @x FROM Transactions ORDER BY transaction_transactionId DESC LIMIT 1;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -2,7 +2,7 @@ USE upward;
 
 CREATE TABLE BaseWarranties (
     warranty_warrantyId         INT unsigned NOT NULL AUTO_INCREMENT UNIQUE,
-    transaction_transactionId   INT unsigned NOT NULL UNIQUE,
+    transaction_transactionId   INT unsigned NOT NULL,
     warranty_warrantyCost       DECIMAL(6,2) NOT NULL,
     warranty_warrantyDate       DATE NOT NULL,
     warranty_lengthInDays       INT NOT NULL NOT NULL,

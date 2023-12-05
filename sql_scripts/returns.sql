@@ -9,7 +9,7 @@ CREATE TABLE BaseReturns (
 );
 
 
-CREATE VIEW returns AS
+CREATE VIEW Returns AS
 SELECT transaction_transactionId,      
        return_dateReturned     
   FROM BaseReturns

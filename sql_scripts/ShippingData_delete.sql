@@ -13,3 +13,18 @@ END;
 //
 
 DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE shippingDataDeleteAll(transactionIdIn INT)
+BEGIN
+
+
+UPDATE BaseShippingData
+   SET deleted = TRUE
+ WHERE transaction_transactionId = transactionIdIn;
+
+END;
+//
+
+DELIMITER ;

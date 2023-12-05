@@ -10,7 +10,7 @@
 <html>
 
 <?php
-    $config = parse_ini_file('/home/noahm/mysql.ini');
+    $config = parse_ini_file('../../mysql.ini');
     $dbhost = $config['mysqli.default_host'];
     $dbuser = $config['mysqli.default_user'];
     $dbpass = $config['mysqli.default_pw'];

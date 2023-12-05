@@ -8,7 +8,7 @@
 <html>
 
 <?php
-    $config = parse_ini_file('/home/noahm/mysql.ini');
+    $config = parse_ini_file('../../mysql.ini');
     $dbhost = $config['mysqli.default_host'];
     $dbuser = $config['mysqli.default_user'];
     $dbpass = $config['mysqli.default_pw'];
@@ -59,7 +59,7 @@
 
         for($i = 0; $i < $result->num_rows; $i++){
             if($resdata[$i][2] === $_POST['search'])
-                echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . "</button></p>";
+                echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . "</button> : " . $resdata[$i][2] . "</p>";
         }
         
     }
@@ -67,13 +67,13 @@
 
 <?php
     if(isset($_POST['searchName'])){
-        $dblist = "SELECT catalog_catalogId, catalog_itemName FROM Catalog;";
+        $dblist = "SELECT catalog_catalogId, catalog_itemName, catagory_categoryName FROM Catalog INNER JOIN Categories ON (catalog_category = catagory_categoryName);";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
         for($i = 0; $i < $result->num_rows; $i++){
             if($resdata[$i][1] === $_POST['search'])
-                echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . "</button></p>";
+                echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . "</button> : " . $resdata[$i][2] . "</p>";
         }
         
     }
@@ -81,15 +81,14 @@
 
 <?php
     if(!isset($_POST['searchName']) && !isset($_POST['searchCatagory'])){
-        $dblist = "SELECT catalog_catalogId, catalog_itemName FROM Catalog;";
+        $dblist = "SELECT catalog_catalogId, catalog_itemName, catagory_categoryName FROM Catalog INNER JOIN Categories ON (catalog_category = catagory_categoryName);";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
         for($i = 0; $i < $result->num_rows; $i++){
-            echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . "</button></p>";
+            echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . "</button> : " . $resdata[$i][2] . "</p>";
         }
     }
-
 ?>
 
 <?php 

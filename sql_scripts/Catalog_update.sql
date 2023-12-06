@@ -14,6 +14,28 @@ UPDATE BaseCatalog
        catalog_numberInStock = numberInStockIn,
        catalog_manufacturer = manufacturerIn
  WHERE catalog_catalogId = catalogIdIn;
+
+
+
+ -- update transactions on hold
+SELECT catalog_numberInStock INTO @x FROM BaseCatalog;
+
+WHILE @x > 0 DO
+   UPDATE Transactions
+      SET transactions_onHold = FALSE
+    WHERE catalog_catalogId = catalogIdIn
+ ORDER BY transaction_dateMade DESC
+    LIMIT 1;
+
+   UPDATE BaseCatalog
+      SET catalog_numberInStock = (catalog_numberInStock - 1)
+    WHERE catalog_catalogId = catalogIdIn;
+
+   SELECT catalog_numberInStock INTO @x FROM BaseCatalog;
+
+END WHILE;
+
+
    SET FOREIGN_KEY_CHECKS=1;
 
 END;

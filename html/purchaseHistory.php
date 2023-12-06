@@ -1,8 +1,10 @@
 <?php
+    /*
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    */
 ?>
 
 <html>
@@ -50,7 +52,7 @@
         $user_id_int = $user_id_body[0][0];
 
         $order_list = $conn->prepare("SELECT catalog_itemName, catalog_category, transaction_dateMade, 
-        transaction_originalPriceAtTransaction FROM Transactions LEFT JOIN Catalog ON 
+        transaction_originalPriceAtTransaction, transaction_onHold FROM Transactions LEFT JOIN Catalog ON 
         Transactions.catalog_catalogId = Catalog.catalog_catalogId WHERE account_accountId = ? and 
         transaction_transactionCompleteBool = 1;");
         $order_list->bind_param("i", $user_id_int);
@@ -67,6 +69,7 @@
                 <th>Category</th>
                 <th>Purchase Date</th>
                 <th>Purchase Price</th>
+                <th>On hold?</th>
             </tr>
             <?php
         for ($i = 0; $i < $order_list_result_body->num_rows; $i++) {
@@ -75,7 +78,8 @@
               <td><?php echo($order_list_body[$i][0]) ?></td> 
               <td><?php echo($order_list_body[$i][1]) ?></td> 
               <td><?php echo($order_list_body[$i][2]) ?></td> 
-              <td><?php echo($order_list_body[$i][3]) ?></td>  
+              <td><?php echo($order_list_body[$i][3]) ?></td> 
+              <td><?php echo($order_list_body[$i][4]) ?></td>  
             </tr>
             <?php
         }
@@ -89,4 +93,8 @@
     $conn->close();
 ?>
 
-
+<form action="index.php" method=POST>
+<?php
+    echo "<p><input type=\"submit\" name=\"returnHome\" value=\"Return to Homepage\" method=POST/></p>";
+?>
+</form>

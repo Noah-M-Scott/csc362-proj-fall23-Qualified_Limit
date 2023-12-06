@@ -1,8 +1,10 @@
 <?php
+    /*
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    */
 ?>
 
 <html>
@@ -189,9 +191,7 @@ if(isset($_POST['wannaLog'])){
 
 <form action="index.php" method=POST>
 <?php
-    if(!isset($_POST['wannaLog'])){
-        echo "<p><input type=\"submit\" name=\"returnHome\" value=\"Return to Homepage\" method=POST/></p>";
-    }
+    echo "<p><input type=\"submit\" name=\"returnHome\" value=\"Return to Homepage\" method=POST/></p>";
 ?>
 </form>
 

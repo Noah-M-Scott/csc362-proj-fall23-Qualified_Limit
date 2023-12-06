@@ -17,3 +17,16 @@ UPDATE BaseCatalog
 END;
 //
 DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE catalogDecrement(catalogIdIn INT)
+BEGIN
+
+UPDATE BaseCatalog
+   SET catalog_numberInStock = (catalog_numberInStock - 1)
+ WHERE catalog_catalogId = catalogIdIn;
+
+END;
+//
+DELIMITER ;

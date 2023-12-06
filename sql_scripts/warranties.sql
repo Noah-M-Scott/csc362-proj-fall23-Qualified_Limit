@@ -18,7 +18,7 @@ SELECT warranty_warrantyId,
        warranty_warrantyDate,
        warranty_lengthInDays
   FROM BaseWarranties
- WHERE deleted = FALSE;
+ WHERE deleted = FALSE AND (ADDDATE(warranty_warrantyDate, INTERVAL warranty_lengthInDays DAY)) >= CURDATE();
 
 SOURCE Warranties_insert.sql
 SOURCE Warranties_delete.sql

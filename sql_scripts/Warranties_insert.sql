@@ -7,7 +7,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 
 SELECT COUNT(transaction_transactionId) INTO @x FROM Warranties
 WHERE transaction_transactionId = TransactionIdIn AND 
-(ADDDATE(warranty_warrantyDate, INTERVAL warranty_lengthInDays DAY)) > CURDATE();
+(ADDDATE(warranty_warrantyDate, INTERVAL warranty_lengthInDays DAY)) >= CURDATE();
 
 IF @x IS NULL OR @x = 0 THEN
 

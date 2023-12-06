@@ -5,10 +5,12 @@ CREATE PROCEDURE shippingDataInsert(
        shippingDatum_trackingIdIN VARCHAR(128),
        shippingDatum_destinationAddressIN VARCHAR(256),
        shippingDatum_shippingCostIN DECIMAL(6,2),
-       shippingDatum_shippingServiceIN DECIMAL(6,2),
+       shippingDatum_shippingServiceIN VARCHAR(128),
        shippingDatum_itemArrivedBoolIN BOOLEAN
     )
 BEGIN
+
+SET FOREIGN_KEY_CHECKS = 0;
 
 INSERT INTO BaseShippingData (
        transaction_transactionId,
@@ -26,6 +28,8 @@ VALUES (
        shippingDatum_shippingServiceIN,
        shippingDatum_itemArrivedBoolIN
        );
+
+SET FOREIGN_KEY_CHECKS = 1;
 
 END;
 //

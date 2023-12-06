@@ -43,7 +43,14 @@ function result_to_html_table($result, $mode) {
         
         <!-- Begin body - - - - - - - - - - - - - - - - - - - - - -->
         <tbody>
-        <?php for ($i=0; $i<$num_rows; $i++){ ?>
+        <?php 
+            if( $mode == 0 ){
+                $_SESSION['shippingCost'] = array(0);
+                $_SESSION['transactionAmount'] = array(0);
+                $_SESSION['inStock'] = array(0);
+                $_SESSION['catalogId'] = array(0);
+            }
+            for ($i=0; $i<$num_rows; $i++){ ?>
             <?php $id = $result_body[$i][0]; ?>
             <tr>     
 
@@ -57,6 +64,11 @@ function result_to_html_table($result, $mode) {
                 if( $mode == 0 ){
                     echo "<td><input type=\"submit\" name=\"warranty". $result_body[$i][0] ."\" value=\"Add a Warranty\" method=POST/></td>";
                     echo "<td>" . $result_body[$i][2] * 0.25 . "</td>";
+                    $total += $result_body[$i][2] * 0.25;
+                    array_push($_SESSION['transactionAmount'], $result_body[$i][2]);
+                    array_push($_SESSION['shippingCost'], $result_body[$i][2] * 0.25);
+                    array_push($_SESSION['inStock'], $result_body[$i][3] <= 0);
+                    array_push($_SESSION['catalogId'], $result_body[$i][4]);
                 }else{
                     echo "<td><input type=\"submit\" name=\"remove". $result_body[$i][1] ."\" value=\"Remove this Warranty\" method=POST/></td>";                
                 }
@@ -162,7 +174,9 @@ function result_to_html_table($result, $mode) {
 
     $accumulatorStmt = "SELECT transaction_transactionId AS id, 
     catalog_itemName AS name, 
-    catalog_currentPrice AS price
+    catalog_currentPrice AS price,
+    catalog_numberInStock AS stock,
+    catalog_catalogId AS item_id
     FROM Transactions INNER JOIN Catalog USING (catalog_catalogId)
     WHERE account_accountId = " . $_SESSION['accountId'] . " AND ";
 
@@ -212,9 +226,9 @@ SESSION_ERROR:
 
 <?php
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $shippingCode = '';
+    $_SESSION['shippingCode'] = '';
     for ($i = 0; $i < 20; $i++) {
-        $shippingCode .= $characters[random_int(0, 35)];
+        $_SESSION['shippingCode'] .= $characters[random_int(0, 35)];
     }
 ?>
 
@@ -224,10 +238,9 @@ SESSION_ERROR:
     <p><input type="text" name='cvv2' value='CVV2'/></p>
     <p><input type="text" name='cardname' value='Card Holder name'/></p>
     <p><input type="text" name='mailaddr' value='Mailing Address'/></p>
-    <p><input type="text" name='shipaddr' value='Delivery Address'/> SHIPPED WITH UPS, TRACKING ID : <?php echo $shippingCode; ?> </p>
+    <p><input type="text" name='shipaddr' value='Delivery Address'/> SHIPPED WITH UPS, TRACKING ID : <?php echo $_SESSION['shippingCode']; ?> </p>
     <p><input type="submit" name="gotoFinalize" value="CheckOut" method=POST/></p>
 </form>
-
 
 
 <form action="shoppingCart.php" method=POST>

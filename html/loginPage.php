@@ -195,5 +195,14 @@ if(isset($_POST['wannaLog'])){
 ?>
 </form>
 
+<form action="purchaseHistory.php" method=POST>
+<?php
+    if(!isset($_POST['wannaLog']))
+    if(isset($_SESSION['username'])) {
+        echo "<p><input type = \"submit\" name=\"purchaseHistory\" value=\"View Order History\" method=POST/></p>";
+    }
+
+
+?>
 
 </html>

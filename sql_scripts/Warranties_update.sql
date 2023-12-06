@@ -5,6 +5,8 @@ BEGIN
 
 SET FOREIGN_KEY_CHECKS=0;
 
+ -- update warranty
+
 UPDATE BaseWarranties
    SET transaction_transactionId = transactionIdIn, 
        warranty_warrantyCost = warrantyCostIn, 

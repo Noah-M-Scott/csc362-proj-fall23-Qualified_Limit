@@ -8,6 +8,8 @@ CREATE PROCEDURE exchangeInsert(
     )
 BEGIN
 
+ -- add a new exchange
+
 SET FOREIGN_KEY_CHECKS=0;
 
 INSERT INTO BaseExchanges (

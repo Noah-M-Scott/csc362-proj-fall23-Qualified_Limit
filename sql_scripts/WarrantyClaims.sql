@@ -7,6 +7,8 @@ CREATE TABLE BaseWarrantyClaims (
     deleted BOOLEAN DEFAULT FALSE
 );
 
+ -- view for deny delete
+
 CREATE VIEW WarrantyClaims AS
 SELECT warranty_warrantyId, warrantyClaim_claim
   FROM BaseWarrantyClaims

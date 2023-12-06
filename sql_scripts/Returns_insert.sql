@@ -3,6 +3,8 @@ DELIMITER //
 CREATE PROCEDURE returnsInsert(transactionIdIn INT, dateReturnedIn DATE)
 BEGIN
 
+ -- create a new return
+
 SET FOREIGN_KEY_CHECKS=0;
 
 INSERT INTO BaseReturns (

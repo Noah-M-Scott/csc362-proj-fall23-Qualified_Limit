@@ -10,6 +10,7 @@ CREATE TABLE BaseDiscounts (
     deleted                         BOOLEAN DEFAULT FALSE
 );
 
+ -- view for deny delete
 CREATE VIEW Discounts AS
 SELECT  catalog_catalogId,      
         discount_priceOffPercent,

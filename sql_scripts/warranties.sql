@@ -11,6 +11,7 @@ CREATE TABLE BaseWarranties (
     deleted                     BOOLEAN DEFAULT FALSE
 );
 
+ -- view for deny delete
 CREATE VIEW Warranties AS
 SELECT warranty_warrantyId,
        transaction_transactionId,

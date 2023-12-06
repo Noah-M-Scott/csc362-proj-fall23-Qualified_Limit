@@ -12,6 +12,7 @@ CREATE TABLE BaseExchanges (
     deleted BOOLEAN DEFAULT FALSE
 );
 
+ -- view for deny delete
 CREATE VIEW Exchanges AS
 SELECT exchange_amountOwedAtExchange,
        transaction_transactionId,

@@ -3,6 +3,8 @@ DELIMITER //
 CREATE PROCEDURE discountsUpdate(catalogIdIn INT, priceOffPercentIn DECIMAL(3,0), startDateIn DATE, endDateIn DATE)
 BEGIN
 
+ -- update discounts
+
 SET FOREIGN_KEY_CHECKS=0;
 UPDATE BaseDiscounts
    SET catalog_catalogId = catalogIdIn, 

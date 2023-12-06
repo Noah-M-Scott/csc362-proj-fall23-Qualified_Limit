@@ -3,6 +3,8 @@ DELIMITER //
 CREATE PROCEDURE returnsUpdate(transactionIdIn INT, dateReturnedIn DATE)
 BEGIN
 
+ -- update a return
+
 SET FOREIGN_KEY_CHECKS=0;
 
 UPDATE BaseReturns

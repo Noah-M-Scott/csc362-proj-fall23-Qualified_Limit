@@ -1,10 +1,10 @@
 <?php
-    /*
+
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    */
+
 ?>
 
 <html>
@@ -163,6 +163,18 @@ function result_to_html_table($result, $mode) {
                 }
     }
     }
+
+
+
+    $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+    
+    if ($conn->connect_errno) {
+        echo "Error: Failed to make a MySQL connection, here is why: ". "<br>";
+        echo "Errno: " . $conn->connect_errno . "\n";
+        echo "Error: " . $conn->connect_error . "\n";
+        exit; // Quit this PHP script if the connection fails.
+    }
+
 
 
     //I know what your thinking, "this should be a prepaired stmt";

@@ -6,6 +6,7 @@ CREATE TABLE BaseCategories (
     deleted                 BOOLEAN DEFAULT FALSE
 );
 
+ -- view for deny delete
 CREATE VIEW Categories AS
 SELECT catagory_categoryId,
        catagory_categoryName

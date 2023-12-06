@@ -12,6 +12,7 @@ CREATE TABLE BaseShippingData (
     deleted BOOLEAN DEFAULT FALSE
 );
 
+ -- view for deny delete
 CREATE VIEW ShippingData AS
 SELECT transaction_transactionId,
        shippingDatum_trackingId,

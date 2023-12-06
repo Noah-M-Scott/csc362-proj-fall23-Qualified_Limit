@@ -14,6 +14,7 @@ CREATE TABLE BaseCatalog (
     deleted                     BOOLEAN DEFAULT FALSE
 );
 
+ -- view for deny delete
 CREATE VIEW Catalog AS
 SELECT  catalog_catalogId,
         catalog_itemName,

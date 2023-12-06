@@ -3,6 +3,8 @@ DELIMITER //
 CREATE PROCEDURE discountInsertion(catalogIdIn INT, priceOffPercentIn DECIMAL(3,0), startDateIn DATE, endDateIn DATE)
 BEGIN
 
+ -- create a new discount
+
 SET FOREIGN_KEY_CHECKS=0;
 INSERT INTO BaseDiscounts (
        catalog_catalogId, 

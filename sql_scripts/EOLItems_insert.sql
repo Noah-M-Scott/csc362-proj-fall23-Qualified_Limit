@@ -3,6 +3,8 @@ DELIMITER //
 CREATE PROCEDURE eolitemsInsert(catalogIdIn INT, dateDiscontinuedIn DATE)
 BEGIN
 
+ -- eol an item
+
 SET FOREIGN_KEY_CHECKS=0;
 
 INSERT INTO BaseEOLItems (

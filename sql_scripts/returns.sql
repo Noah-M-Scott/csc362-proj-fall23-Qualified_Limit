@@ -8,7 +8,7 @@ CREATE TABLE BaseReturns (
     deleted                             BOOLEAN DEFAULT FALSE
 );
 
-
+ -- view for deny delete
 CREATE VIEW Returns AS
 SELECT transaction_transactionId,      
        return_dateReturned     

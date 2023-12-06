@@ -6,6 +6,8 @@ CREATE PROCEDURE warrantyClaimInsert(
     )
 BEGIN
 
+ -- insert a new claim
+
 SET FOREIGN_KEY_CHECKS=0;
 
 INSERT INTO BaseWarrantyClaims (

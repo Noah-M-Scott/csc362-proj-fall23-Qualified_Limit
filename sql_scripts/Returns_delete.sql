@@ -3,6 +3,9 @@ DELIMITER  //
 CREATE PROCEDURE returnsDelete(transactionIdIn INT)
 BEGIN
 
+
+ -- deny delete a return
+
 SET FOREIGN_KEY_CHECKS=0;
 
 UPDATE BaseReturns

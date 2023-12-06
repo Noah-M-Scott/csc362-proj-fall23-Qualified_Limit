@@ -16,6 +16,7 @@ CREATE TABLE BaseTransactions (
     deleted BOOLEAN DEFAULT FALSE
 );
 
+ -- view for deny delete
 CREATE VIEW Transactions AS
 SELECT transaction_transactionId,
        catalog_catalogId,

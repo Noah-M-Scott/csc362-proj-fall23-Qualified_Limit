@@ -13,6 +13,7 @@ CREATE TABLE BaseFinancialData (
     deleted BOOLEAN DEFAULT FALSE
 );
 
+ -- view for deny delete
 CREATE VIEW FinancialData AS
 SELECT financialDatum_financialId,
        transaction_transactionId,

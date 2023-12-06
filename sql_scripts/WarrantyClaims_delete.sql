@@ -5,6 +5,8 @@ BEGIN
 
 SET FOREIGN_KEY_CHECKS=0;
 
+ -- deny delete claim
+
 UPDATE BaseWarrantyClaims
    SET deleted = TRUE
  WHERE warranty_warrantyId = warrantyIdIn;

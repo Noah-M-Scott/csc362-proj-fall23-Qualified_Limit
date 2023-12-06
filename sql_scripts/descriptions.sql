@@ -8,6 +8,7 @@ CREATE TABLE BaseDescriptions (
     deleted                      BOOLEAN DEFAULT FALSE
 );
 
+ -- view for deny delete
 CREATE VIEW Descriptions AS
 SELECT description_Id,
        description_text

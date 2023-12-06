@@ -8,7 +8,7 @@ CREATE TABLE BaseEOLItems (
     deleted                         BOOLEAN DEFAULT FALSE
 );
 
-
+ -- view for deny delete
 CREATE VIEW EOLitems AS
 SELECT catalog_catalogId,      
        EOL_dateDiscontinued

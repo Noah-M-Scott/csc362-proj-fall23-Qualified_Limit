@@ -10,6 +10,8 @@ CREATE PROCEDURE shippingDataInsert(
     )
 BEGIN
 
+ -- insert a new shipping datum
+
 SET FOREIGN_KEY_CHECKS = 0;
 
 INSERT INTO BaseShippingData (

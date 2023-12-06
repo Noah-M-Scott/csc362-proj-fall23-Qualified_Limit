@@ -5,6 +5,7 @@ CREATE PROCEDURE catalogInsertion(itemNameIn VARCHAR(128), categoryIn VARCHAR(12
                                     numberInStockIn INT, manufacturerIn VARCHAR(128), descriptionIn VARCHAR(4096))
 BEGIN
 
+ -- create a new catalog item
    SET FOREIGN_KEY_CHECKS=0;
 INSERT INTO BaseCatalog ( 
        catalog_itemName, 

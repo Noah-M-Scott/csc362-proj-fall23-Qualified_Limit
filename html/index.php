@@ -63,6 +63,8 @@
 ?>
 </form>
 
+    <p><b>WARNING: AVOID USING THE BACK ARROW ON THIS WEBSITE, USE REDIRECT BUTTONS INSTEAD</b></p>
+
     <body>
         <h1>Welcome to Upwards Outfitters, [TOWN]'s premier provider of high-quality climbing and camping equipment since [YEAR]!</h1>
         <p>Want more information? Click <a href="aboutPage.php">HERE</a> for our About!</p>

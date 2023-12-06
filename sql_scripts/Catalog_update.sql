@@ -5,6 +5,7 @@ CREATE PROCEDURE catalogUpdate(catalogIdIn INT, itemNameIn VARCHAR(128), categor
                                     numberInStockIn INT, manufacturerIn VARCHAR(128))
 BEGIN
 
+ -- update a catalog item
    SET FOREIGN_KEY_CHECKS=0;
 UPDATE BaseCatalog
    SET catalog_itemName = itemNameIn,
@@ -21,16 +22,20 @@ UPDATE BaseCatalog
 SELECT catalog_numberInStock INTO @x FROM BaseCatalog;
 
 WHILE @x > 0 DO
+
+   -- starting with the newest first
    UPDATE Transactions
       SET transactions_onHold = FALSE
     WHERE catalog_catalogId = catalogIdIn
  ORDER BY transaction_dateMade DESC
     LIMIT 1;
 
+   -- pay out the number in stock
    UPDATE BaseCatalog
       SET catalog_numberInStock = (catalog_numberInStock - 1)
     WHERE catalog_catalogId = catalogIdIn;
 
+   -- update x
    SELECT catalog_numberInStock INTO @x FROM BaseCatalog;
 
 END WHILE;

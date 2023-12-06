@@ -3,6 +3,8 @@ DELIMITER  //
 CREATE PROCEDURE eolitemsDelete(catalogIdIn INT, dateDiscontinuedIn DATE)
 BEGIN
 
+ -- deny deletion eolitems
+
 SET FOREIGN_KEY_CHECKS=0;
 UPDATE BaseEOLItems
    SET deleted = TRUE

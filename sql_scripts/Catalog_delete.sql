@@ -3,6 +3,7 @@ DELIMITER  //
 CREATE PROCEDURE catalogDelete(catalogIdIn INT)
 BEGIN
 
+ -- Deny delete Catalog
    SET FOREIGN_KEY_CHECKS=0;
 UPDATE BaseCatalog
    SET deleted = TRUE

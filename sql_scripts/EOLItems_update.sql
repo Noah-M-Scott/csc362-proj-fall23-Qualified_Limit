@@ -3,6 +3,8 @@ DELIMITER //
 CREATE PROCEDURE eolitemsUpdate(catalogIdIn INT, dateDiscontinuedIn DATE)
 BEGIN
 
+ -- update a eol
+
 SET FOREIGN_KEY_CHECKS=0;
 
 UPDATE BaseEOLItems

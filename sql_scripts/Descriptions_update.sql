@@ -1,11 +1,13 @@
 DELIMITER //
 
-CREATE PROCEDURE descriptionsUpdate(catalogIdIn INT, textIn VARCHAR(5000))
+CREATE PROCEDURE descriptionsUpdate(descriptionIdIn INT, textIn VARCHAR(5000))
 BEGIN
+
+   -- update description
 
 UPDATE BaseDescriptions
    SET description_text = textIn
-WHERE description_Id = catalogIdIn;
+WHERE description_Id = descriptionIdIn;
 
 END;
 //

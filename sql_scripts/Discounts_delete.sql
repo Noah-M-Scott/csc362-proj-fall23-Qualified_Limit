@@ -3,6 +3,9 @@ DELIMITER  //
 CREATE PROCEDURE discountDelete(catalogIdIn INT, startDateIn DATE, endDateIn DATE)
 BEGIN
 
+
+ -- deny delete discount
+
 SET FOREIGN_KEY_CHECKS=0;
 UPDATE BaseDiscounts
    SET deleted = TRUE

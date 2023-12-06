@@ -65,14 +65,14 @@
             $edited = TRUE;
         }
 
-        $dblist = "SELECT catalog_catalogId, catalog_itemName, catalog_currentPrice FROM Catalog;";
+        $dblist = "SELECT catalog_catalogId, catalog_itemName, catalog_currentPrice, catalog_numberInStock  FROM Catalog;";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
         $total = 0;
         for($i = 0; $i < $result->num_rows; $i++){
             for($j = 0; $j < count($_SESSION['cart']); $j++)
                     if($resdata[$i][0] === $_SESSION['cart'][$j]){
-                        echo "<p>" . $resdata[$i][1] . " : $" . $resdata[$i][2] . " <input type='submit' name='" . "d" . $j . "' value='remove from cart' method=POST/></p>";
+                        echo "<p>" . $resdata[$i][1] . " : $" . $resdata[$i][2] . " | In Stock: " . $resdata[$i][3] . " <input type='submit' name='" . "d" . $j . "' value='remove from cart' method=POST/></p>";
                         $total += $resdata[$i][2];
                     }
         }
@@ -85,7 +85,7 @@
             $edited = TRUE;
         }
 
-        $dblist = "SELECT catalog_catalogId, catalog_itemName, catalog_currentPrice FROM Catalog;";
+        $dblist = "SELECT catalog_catalogId, catalog_itemName, catalog_currentPrice, catalog_numberInStock FROM Catalog;";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
@@ -93,7 +93,7 @@
         for($i = 0; $i < $result->num_rows; $i++){
             for($j = 0; $j < count($_SESSION['cart']); $j++)
                     if($resdata[$i][0] === $_SESSION['cart'][$j]){
-                        echo "<p>" . $resdata[$i][1] . " : $" . $resdata[$i][2] . " <input type='submit' name='" . "d" . $j . "' value='remove from cart' method=POST/></p>";
+                        echo "<p>" . $resdata[$i][1] . " : $" . $resdata[$i][2] . " | In Stock: " . $resdata[$i][3] . " <input type='submit' name='" . "d" . $j . "' value='remove from cart' method=POST/></p>";
                         $total += $resdata[$i][2];
                     }
         }

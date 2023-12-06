@@ -3,6 +3,8 @@ DELIMITER //
 CREATE PROCEDURE transactionUpdate(transactionIdIn INT, finished BOOLEAN, onHold BOOLEAN, payed DECIMAL(6,2))
 BEGIN
 
+SET FOREIGN_KEY_CHECKS=0;
+
 SELECT transaction_currentAmountPaid
   INTO @amountPaid 
   FROM Transactions 
@@ -25,7 +27,10 @@ UPDATE BaseTransactions
        transaction_currentAmountOwed = @amountOwed
  WHERE transaction_transactionId = transactionIdIn;
 
+SET FOREIGN_KEY_CHECKS=1;
+
 END;
 //
 
 DELIMITER ;
+

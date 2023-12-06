@@ -10,6 +10,8 @@ CREATE PROCEDURE financialDataInsert(
     )
 BEGIN
 
+SET FOREIGN_KEY_CHECKS=0;
+
 INSERT INTO BaseFinancialData (
        transaction_transactionId,
        financialDatum_amountOwedAtPayment,
@@ -26,6 +28,8 @@ VALUES (
        financialDatum_billingAddressIN,
        financialDatum_datePayedIN
        );
+
+SET FOREIGN_KEY_CHECKS=1;
 
 END;
 //

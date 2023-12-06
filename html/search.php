@@ -53,40 +53,48 @@
 
 <?php
     if(isset($_POST['searchCatagory'])){
-        $dblist = "SELECT catalog_catalogId, catalog_itemName, catagory_categoryName FROM Catalog INNER JOIN Categories ON (catalog_category = catagory_categoryName);";
+        //Note that we are getting everything from the DB, then filtering. Is this less efficient than filtering in the DB?
+        $dblist = "SELECT catalog_catalogId, catalog_itemName, catalog_currentPrice, catalog_numberInStock, 
+        catagory_categoryName FROM Catalog INNER JOIN Categories ON (catalog_category = catagory_categoryName);";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
         for($i = 0; $i < $result->num_rows; $i++){
-            if($resdata[$i][2] === $_POST['search'])
-                echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . "</button> : " . $resdata[$i][2] . "</p>";
-        }
+            if($resdata[$i][4] === $_POST['search'])
+            echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . 
+            "</button> Price: $" . $resdata[$i][2] . " Quantity Available: " . $resdata[$i][3] . 
+            " Category: " . $resdata[$i][4] . "</p>";        }
         
     }
 ?>
 
 <?php
     if(isset($_POST['searchName'])){
-        $dblist = "SELECT catalog_catalogId, catalog_itemName, catagory_categoryName FROM Catalog INNER JOIN Categories ON (catalog_category = catagory_categoryName);";
+        $dblist = "SELECT catalog_catalogId, catalog_itemName, catalog_currentPrice, catalog_numberInStock, 
+        catagory_categoryName FROM Catalog INNER JOIN Categories ON (catalog_category = catagory_categoryName);";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
         for($i = 0; $i < $result->num_rows; $i++){
             if($resdata[$i][1] === $_POST['search'])
-                echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . "</button> : " . $resdata[$i][2] . "</p>";
-        }
+            echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . 
+            "</button> Price: $" . $resdata[$i][2] . " Quantity Available: " . $resdata[$i][3] . 
+            " Category: " . $resdata[$i][4] . "</p>";        }
         
     }
 ?>
 
 <?php
     if(!isset($_POST['searchName']) && !isset($_POST['searchCatagory'])){
-        $dblist = "SELECT catalog_catalogId, catalog_itemName, catagory_categoryName FROM Catalog INNER JOIN Categories ON (catalog_category = catagory_categoryName);";
+        $dblist = "SELECT catalog_catalogId, catalog_itemName, catalog_currentPrice, catalog_numberInStock, 
+        catagory_categoryName FROM Catalog INNER JOIN Categories ON (catalog_category = catagory_categoryName);";
         $result = $conn->query($dblist);
         $resdata = $result->fetch_all();
 
         for($i = 0; $i < $result->num_rows; $i++){
-            echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . "</button> : " . $resdata[$i][2] . "</p>";
+            echo "<p><button name='product' value=" . $resdata[$i][0] . ">" . $resdata[$i][1] . 
+            "</button> Price: $" . $resdata[$i][2] . " Quantity Available: " . $resdata[$i][3] . 
+            " Category: " . $resdata[$i][4] . "</p>";
         }
     }
 ?>

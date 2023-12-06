@@ -3,6 +3,7 @@ DELIMITER //
 CREATE PROCEDURE transactionDelete(transactionIdIn INT)
 BEGIN
 
+SET FOREIGN_KEY_CHECKS=0;
 
 UPDATE BaseTransactions
    SET deleted = TRUE
@@ -19,6 +20,8 @@ SELECT warranty_warrantyId INTO @x FROM Warranties
 SELECT financialDatum_financialId INTO @x FROM FinancialData
  WHERE transaction_transactionId = transactionIdIn;
   CALL financialDataDelete(@x);
+
+SET FOREIGN_KEY_CHECKS=1;
 
 END;
 //

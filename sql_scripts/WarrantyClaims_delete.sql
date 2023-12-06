@@ -3,10 +3,13 @@ DELIMITER //
 CREATE PROCEDURE warrantyClaimDelete(warrantyIdIn INT)
 BEGIN
 
+SET FOREIGN_KEY_CHECKS=0;
 
 UPDATE BaseWarrantyClaims
    SET deleted = TRUE
  WHERE warranty_warrantyId = warrantyIdIn;
+
+SET FOREIGN_KEY_CHECKS=1;
 
 END;
 //

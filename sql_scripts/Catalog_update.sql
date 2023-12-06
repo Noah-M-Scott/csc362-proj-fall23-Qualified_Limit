@@ -5,6 +5,7 @@ CREATE PROCEDURE catalogUpdate(catalogIdIn INT, itemNameIn VARCHAR(128), categor
                                     numberInStockIn INT, manufacturerIn VARCHAR(128))
 BEGIN
 
+   SET FOREIGN_KEY_CHECKS=0;
 UPDATE BaseCatalog
    SET catalog_itemName = itemNameIn,
        catalog_category= categoryIn,
@@ -13,6 +14,7 @@ UPDATE BaseCatalog
        catalog_numberInStock = numberInStockIn,
        catalog_manufacturer = manufacturerIn
  WHERE catalog_catalogId = catalogIdIn;
+   SET FOREIGN_KEY_CHECKS=1;
 
 END;
 //

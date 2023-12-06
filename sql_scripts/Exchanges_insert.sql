@@ -8,6 +8,8 @@ CREATE PROCEDURE exchangeInsert(
     )
 BEGIN
 
+SET FOREIGN_KEY_CHECKS=0;
+
 INSERT INTO BaseExchanges (
        exchange_amountOwedAtExchange,
        transaction_transactionId,
@@ -19,6 +21,8 @@ VALUES (
        exchange_idOfExchangedTransactionIN,
        exchange_returnTrackIdIN
        );
+
+SET FOREIGN_KEY_CHECKS=1;
 
 END;
 //
